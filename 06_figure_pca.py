@@ -1,10 +1,11 @@
 """
-Step 6: PCA graph of the BiomedBERT embedding space (added during revision).
+Step 6: principal component map of the BiomedBERT embedding space (Figure 2 of
+the manuscript, added during revision).
 Panel A: PC1 x PC2 of the standardized 768-d embeddings (PCA fitted on the 183
-labelled samples) with the 4 validation plants and the 11 Moroccan plants
+labelled records) with the 4 validation plants and the 11 Moroccan plants
 projected onto the same axes. Panel B: cumulative explained variance (95% cut).
-Panel C: predicted probability ranking of the 15 new plants with the 0.39
-threshold and bootstrap 95% intervals.
+Panel C: model scores of the 15 unlabelled plants with the 0.39 threshold and
+bootstrap 95% intervals.
 Requires cache/_y_all.npy (step 1) and the embeddings and bootstrap results
 written by 04_prediction_stability.py.
 """
@@ -26,55 +27,59 @@ Z_tr = pca_full.transform(sc.transform(X_tr)); Z_new = pca_full.transform(sc.tra
 ev = pca_full.explained_variance_ratio_
 print(f"PC1={ev[0]:.1%}, PC2={ev[1]:.1%}, PC1+PC2={ev[:2].sum():.1%}; components for 95% variance = {n95}")
 
-fig = plt.figure(figsize=(14, 5.4)); gs = fig.add_gridspec(1, 3, width_ratios=[1.5, 0.9, 1.0])
-ax = fig.add_subplot(gs[0])
-ax.scatter(Z_tr[y == 0, 0], Z_tr[y == 0, 1], s=22, c='#4393c3', alpha=0.55, label='training, inhibition (class 0, n=101)')
-ax.scatter(Z_tr[y == 1, 0], Z_tr[y == 1, 1], s=22, c='#d6604d', alpha=0.55, label='training, induction (class 1, n=82)')
+plt.rcParams.update({'font.size': 7.5, 'axes.titlesize': 8, 'axes.labelsize': 7.5, 'legend.fontsize': 6, 'xtick.labelsize': 6.5, 'ytick.labelsize': 6.5})
+fig = plt.figure(figsize=(7.2, 5.9))
+gs = fig.add_gridspec(2, 2, width_ratios=[1.12, 1], height_ratios=[0.8, 1.2], hspace=0.45, wspace=0.62,
+                      left=0.06, right=0.99, top=0.95, bottom=0.08)
+# ---- A: PC1 x PC2 ----
+ax = fig.add_subplot(gs[:, 0])
+ax.scatter(Z_tr[y == 0, 0], Z_tr[y == 0, 1], s=14, c='#4393c3', alpha=0.55, lw=0, label='training, inhibition (class 0, n=101)')
+ax.scatter(Z_tr[y == 1, 0], Z_tr[y == 1, 1], s=14, c='#d6604d', alpha=0.55, lw=0, label='training, induction (class 1, n=82)')
 for i, (n, g) in enumerate(zip(names, group)):
-    if g == 'validation':
-        ax.scatter(Z_new[i, 0], Z_new[i, 1], marker='s', s=48, c='#1b7837', edgecolor='k', zorder=5)
-    else:
-        bold = n in ('Capparis spinosa', 'Ephedra fragilis')
-        ax.scatter(Z_new[i, 0], Z_new[i, 1], marker='*', s=150 if bold else 95, c='#ffd92f' if not bold else '#e7298a', edgecolor='k', zorder=6)
-# label placement: crowded points get leader lines to a label column on the right
-xmax = max(Z_tr[:, 0].max(), Z_new[:, 0].max())
-order_y = np.argsort(-Z_new[:, 1])
-placed = []
-for i in order_y:
-    n = names[i]; x0, y0 = Z_new[i, 0], Z_new[i, 1]
-    crowded = any(np.hypot(x0 - Z_new[j, 0], y0 - Z_new[j, 1]) < 3.5 for j in range(len(names)) if j != i)
     bold = n in ('Capparis spinosa', 'Ephedra fragilis')
+    if g == 'validation':
+        ax.scatter(Z_new[i, 0], Z_new[i, 1], marker='s', s=30, c='#1b7837', edgecolor='k', lw=0.5, zorder=5)
+    else:
+        ax.scatter(Z_new[i, 0], Z_new[i, 1], marker='*', s=110 if bold else 70, c='#e7298a' if bold else '#ffd92f', edgecolor='k', lw=0.5, zorder=6)
+xmax = max(Z_tr[:, 0].max(), Z_new[:, 0].max())
+placed = []
+for i in np.argsort(-Z_new[:, 1]):
+    n = names[i]; x0, y0 = Z_new[i, 0], Z_new[i, 1]
+    bold = n in ('Capparis spinosa', 'Ephedra fragilis')
+    crowded = any(np.hypot(x0 - Z_new[j, 0], y0 - Z_new[j, 1]) < 3.5 for j in range(len(names)) if j != i)
     if crowded:
         yl = y0
-        while any(abs(yl - p_) < 1.6 for p_ in placed):
-            yl -= 1.6
+        while any(abs(yl - p_) < 1.7 for p_ in placed):
+            yl -= 1.7
         placed.append(yl)
-        ax.annotate(n, (x0, y0), xytext=(xmax + 3, yl), textcoords='data', fontsize=6.5, va='center',
-                    fontweight='bold' if bold else 'normal',
-                    arrowprops=dict(arrowstyle='-', color='0.4', lw=0.6, shrinkA=0, shrinkB=2))
+        ax.annotate(n, (x0, y0), xytext=(xmax + 2.5, yl), textcoords='data', fontsize=5.5, va='center',
+                    fontweight='bold' if bold else 'normal', arrowprops=dict(arrowstyle='-', color='0.4', lw=0.5, shrinkA=0, shrinkB=2))
+    elif x0 < 0:
+        ax.annotate(n, (x0, y0), textcoords='offset points', xytext=(-4, 2), ha='right', fontsize=5.5, fontweight='bold' if bold else 'normal')
     else:
-        ax.annotate(n, (x0, y0), textcoords='offset points', xytext=(4, 3), fontsize=6.5,
-                    fontweight='bold' if bold else 'normal')
-ax.set_xlim(Z_tr[:, 0].min() - 2, xmax + 22)
-ax.scatter([], [], marker='s', s=48, c='#1b7837', edgecolor='k', label='validation set (n=4)')
-ax.scatter([], [], marker='*', s=95, c='#ffd92f', edgecolor='k', label='Moroccan prediction set (n=11)')
-ax.scatter([], [], marker='*', s=150, c='#e7298a', edgecolor='k', label='experimentally tested (C. spinosa, E. fragilis)')
+        ax.annotate(n, (x0, y0), textcoords='offset points', xytext=(3, 2), fontsize=5.5, fontweight='bold' if bold else 'normal')
+ax.set_xlim(Z_tr[:, 0].min() - 2, xmax + 21)
+ax.scatter([], [], marker='s', s=30, c='#1b7837', edgecolor='k', lw=0.5, label='validation set (n=4)')
+ax.scatter([], [], marker='*', s=70, c='#ffd92f', edgecolor='k', lw=0.5, label='Moroccan prediction set (n=11)')
+ax.scatter([], [], marker='*', s=110, c='#e7298a', edgecolor='k', lw=0.5, label='experimentally tested (C. spinosa, E. fragilis)')
 ax.set_xlabel(f'PC1 ({ev[0]:.1%} of variance)'); ax.set_ylabel(f'PC2 ({ev[1]:.1%} of variance)')
-ax.set_title('A. PCA of BiomedBERT embeddings (fitted on the 183 labelled samples)', fontsize=9.5, loc='left')
-ax.legend(fontsize=6.5, loc='best')
-ax = fig.add_subplot(gs[1])
-ax.plot(np.arange(1, len(cum) + 1), cum, color='#2166ac'); ax.axhline(0.95, color='r', ls='--', lw=1); ax.axvline(n95, color='r', ls=':', lw=1)
-ax.annotate(f'{n95} components\n= 95% variance', (n95, 0.95), textcoords='offset points', xytext=(8, -30), fontsize=7.5)
+ax.set_title('(A) PCA of BiomedBERT embeddings, fitted on the 183 labelled records', loc='left')
+ax.legend(loc='lower left', frameon=True, framealpha=0.9, handlelength=1.2)
+# ---- B: explained variance ----
+ax = fig.add_subplot(gs[0, 1])
+ax.plot(np.arange(1, len(cum) + 1), cum, color='#2166ac', lw=1.2); ax.axhline(0.95, color='r', ls='--', lw=0.8); ax.axvline(n95, color='r', ls=':', lw=0.8)
+ax.text(n95 - 6, 0.70, f'{n95} components\n= 95% variance', ha='right', va='top', fontsize=6.5)
 ax.set_xlabel('number of principal components'); ax.set_ylabel('cumulative explained variance'); ax.set_ylim(0, 1.02)
-ax.set_title('B. Explained variance', fontsize=9.5, loc='left')
-ax = fig.add_subplot(gs[2])
+ax.set_title('(B) Explained variance', loc='left')
+# ---- C: ranking ----
+ax = fig.add_subplot(gs[1, 1])
 order = np.argsort(p)
 cols = ['#1b7837' if group[i] == 'validation' else ('#e7298a' if names[i] in ('Capparis spinosa', 'Ephedra fragilis') else '#fdb863') for i in order]
-ax.barh(np.arange(len(order)), p[order], color=cols, edgecolor='k', lw=0.4)
-ax.errorbar(p[order], np.arange(len(order)), xerr=[p[order] - stab['P_boot_2.5%'].values[order], stab['P_boot_97.5%'].values[order] - p[order]], fmt='none', ecolor='k', elinewidth=0.8, capsize=2)
-ax.set_yticks(np.arange(len(order))); ax.set_yticklabels([f"{names[i]}{' (val.)' if group[i]=='validation' else ''}" for i in order], fontsize=7)
-ax.axvline(0.39, color='r', ls='--', lw=1.2); ax.text(0.395, len(order) - 0.6, 't = 0.39', color='r', fontsize=7)
+ax.barh(np.arange(len(order)), p[order], color=cols, edgecolor='k', lw=0.3, height=0.7)
+ax.errorbar(p[order], np.arange(len(order)), xerr=[p[order] - stab['P_boot_2.5%'].values[order], stab['P_boot_97.5%'].values[order] - p[order]], fmt='none', ecolor='k', elinewidth=0.6, capsize=1.5)
+ax.set_yticks(np.arange(len(order))); ax.set_yticklabels([f"{names[i]}{' (val.)' if group[i]=='validation' else ''}" for i in order], fontsize=6)
+ax.axvline(0.39, color='r', ls='--', lw=0.9); ax.set_ylim(-1.4, len(order) - 0.4); ax.text(0.405, -1.05, 't = 0.39', color='r', fontsize=6, va='center')
 ax.set_xlabel('P(class = 1) with bootstrap 95% CI'); ax.set_xlim(0, 1)
-ax.set_title('C. Model ranking of the 15 new plants', fontsize=9.5, loc='left')
-plt.tight_layout(); plt.savefig('results/figure_pca_embedding_space.png', dpi=200); plt.savefig('results/figure_pca_embedding_space.pdf')
+ax.set_title('(C) Model scores of the 15 unlabelled plants', loc='left')
+plt.savefig('results/figure_pca_embedding_space.png', dpi=300); plt.savefig('results/figure_pca_embedding_space.pdf')
 print('Saved: results/figure_pca_embedding_space.png/.pdf')

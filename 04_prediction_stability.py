@@ -16,6 +16,7 @@ records, trained on 100% of the 183 labelled samples, decision threshold 0.39.
     slope/intercept, reliability table.
 (5) Tables 5 and 6 augmented with reference labels, citations and experimental
     conditions taken from the source workbook.
+Figure S1 of the supplementary materials is results/figure_stability_calibration.png.
 """
 import os, re, gc, warnings, sys
 os.environ['TOKENIZERS_PARALLELISM'] = 'false'
@@ -269,29 +270,33 @@ print(t6[['SPECIES', 'TESTED MICROORGANISME', 'EFFECTIVE CONCENTRATION', 'REFERE
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-fig, axes = plt.subplots(1, 2, figsize=(13, 5.2), gridspec_kw={'width_ratios': [1.6, 1]})
-ax = axes[0]
+plt.rcParams.update({'font.size': 7.5, 'axes.titlesize': 8, 'axes.labelsize': 7.5, 'legend.fontsize': 6.5, 'xtick.labelsize': 6.5, 'ytick.labelsize': 6.5})
+fig = plt.figure(figsize=(7.2, 8.2))
+gs = fig.add_gridspec(2, 3, height_ratios=[1.15, 1], width_ratios=[0.22, 1, 0.22], hspace=0.32, left=0.25, right=0.98, top=0.96, bottom=0.06)
+ax = fig.add_subplot(gs[0, :])
 order = np.argsort(-p_point)
 data = [P[:, i] for i in order]
 labels = [f"{names[i]}{' (val.)' if group[i]=='validation' else ''}" for i in order]
 bp = ax.boxplot(data, vert=False, showfliers=False, patch_artist=True, widths=0.6)
 for patch, i in zip(bp['boxes'], order):
     patch.set_facecolor('#f4a582' if group[i] == 'Moroccan' else '#92c5de'); patch.set_alpha(0.8)
-ax.scatter(p_point[order], np.arange(1, len(order) + 1), marker='D', color='k', s=18, zorder=5, label='point estimate (100% data)')
-ax.axvline(OPT_THRESHOLD, color='r', ls='--', lw=1.2, label='t = 0.39')
-ax.axvspan(0.30, 0.44, color='r', alpha=0.07, label='per-shuffle CV thresholds (0.30-0.44)')
-ax.set_yticks(np.arange(1, len(order) + 1)); ax.set_yticklabels(labels, fontsize=8)
-ax.invert_yaxis(); ax.set_xlabel('P(class = 1, induction)'); ax.set_title('A. Bootstrap distribution of predicted probabilities (B = 1000)', fontsize=10, loc='left')
-ax.legend(fontsize=7, loc='lower right')
-ax = axes[1]
-ax.plot([0, 1], [0, 1], 'k:', lw=1, label='perfect calibration')
-ax.plot(rel['mean_predicted'], rel['observed_induction_rate'], 'o-', color='#2166ac', label='out-of-fold (10 x 5-fold CV)')
+ax.scatter(p_point[order], np.arange(1, len(order) + 1), marker='D', color='k', s=12, zorder=5, label='point estimate (100% of the data)')
+ax.axvline(OPT_THRESHOLD, color='r', ls='--', lw=1, label='t = 0.39')
+ax.axvspan(0.30, 0.44, color='r', alpha=0.07, label='per-shuffle CV thresholds (0.30 to 0.44)')
+ax.set_yticks(np.arange(1, len(order) + 1)); ax.set_yticklabels(labels)
+ax.invert_yaxis(); ax.set_xlabel('P(class = 1, induction)')
+ax.set_title('(A) Bootstrap distribution of the predicted scores (B = 1000 resamples of the training set)', loc='left')
+ax.legend(loc='lower right')
+ax = fig.add_subplot(gs[1, 1])
+ax.plot([0, 1], [0, 1], 'k:', lw=0.8, label='perfect calibration')
+ax.plot(rel['mean_predicted'], rel['observed_induction_rate'], 'o-', color='#2166ac', ms=4, lw=1.2, label='out-of-fold (10 x stratified 5-fold CV)')
 for _, r_ in rel.iterrows():
-    ax.annotate(f"n={int(r_['n'])}", (r_['mean_predicted'], r_['observed_induction_rate']), textcoords='offset points', xytext=(5, -10), fontsize=7)
-ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.set_xlabel('mean predicted probability'); ax.set_ylabel('observed fraction of induction (class 1)')
-ax.set_title(f"B. Reliability diagram (Brier = {cal_df['Brier'].mean():.3f}, slope = {cal_df['Cal_slope'].mean():.2f})", fontsize=10, loc='left')
-ax.legend(fontsize=7, loc='upper left')
-plt.tight_layout(); plt.savefig('results/figure_stability_calibration.png', dpi=200); plt.savefig('results/figure_stability_calibration.pdf')
+    ax.annotate(f"n={int(r_['n'])}", (r_['mean_predicted'], r_['observed_induction_rate']), textcoords='offset points', xytext=(5, -9), fontsize=6)
+ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.set_aspect('equal')
+ax.set_xlabel('mean predicted probability'); ax.set_ylabel('observed fraction of induction (class 1)')
+ax.set_title(f"(B) Reliability diagram (Brier = {cal_df['Brier'].mean():.3f}, slope = {cal_df['Cal_slope'].mean():.2f})", loc='left')
+ax.legend(loc='upper left')
+plt.savefig('results/figure_stability_calibration.png', dpi=300); plt.savefig('results/figure_stability_calibration.pdf')
 print("\nSaved to results/: prediction_stability_bootstrap.csv, threshold_sensitivity.csv, calibration_summary.csv,")
 print("  calibration_reliability.csv, calibration_out_of_fold.csv, table5_validation_with_reference_labels.csv,")
 print("  table6_moroccan_with_conditions.csv, figure_stability_calibration.png/.pdf")
