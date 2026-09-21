@@ -1,0 +1,51 @@
+Embedding,Classifier,CV_Seed,CV_F1_OptT,Opt_Threshold,Best_Params
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Logistic Regression,42,0.7805128205128206,0.38,"{'C': 0.001, 'penalty': 'l2'}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Logistic Regression,123,0.7961578441821603,0.39,"{'C': 0.001, 'penalty': 'l2'}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Logistic Regression,456,0.7908589440504334,0.44,"{'C': 0.001, 'penalty': 'l2'}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Logistic Regression,789,0.7879365079365078,0.3,"{'C': 0.1, 'penalty': 'l1', 'solver': 'saga', 'max_iter': 2000}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Logistic Regression,2024,0.7802914261026669,0.43,"{'C': 0.001, 'penalty': 'l2'}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Random Forest,42,0.7117988394584139,0.37,"{'n_estimators': 50, 'max_depth': 7, 'min_samples_split': 2, 'min_samples_leaf': 1}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Random Forest,123,0.7778749028749029,0.46,"{'n_estimators': 200, 'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 2}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Random Forest,456,0.7594202898550725,0.45,"{'n_estimators': 50, 'max_depth': 5, 'min_samples_split': 2, 'min_samples_leaf': 2}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Random Forest,789,0.7259170653907496,0.45,"{'n_estimators': 50, 'max_depth': 5, 'min_samples_split': 10, 'min_samples_leaf': 1}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Random Forest,2024,0.7289506359273802,0.45,"{'n_estimators': 200, 'max_depth': 7, 'min_samples_split': 2, 'min_samples_leaf': 2}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,SVM-RBF,42,0.7697206542191345,0.38,"{'C': 0.1, 'gamma': 0.001}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,SVM-RBF,123,0.798169449598021,0.34,"{'C': 1, 'gamma': 0.001}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,SVM-RBF,456,0.7667655096226524,0.43,"{'C': 1, 'gamma': 0.001}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,SVM-RBF,789,0.7561904761904761,0.47,"{'C': 0.1, 'gamma': 0.001}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,SVM-RBF,2024,0.7851664015956166,0.47,"{'C': 0.1, 'gamma': 'scale'}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,SVM-Linear,42,0.7648601398601399,0.35,{'C': 0.001}
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,SVM-Linear,123,0.7901999602581746,0.33,{'C': 0.001}
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,SVM-Linear,456,0.7804515745692217,0.38,{'C': 0.001}
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,SVM-Linear,789,0.7415326755266327,0.33,{'C': 0.01}
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,SVM-Linear,2024,0.7705611998064829,0.42,{'C': 0.001}
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,XGBoost,42,0.7131313131313132,0.36,"{'n_estimators': 50, 'max_depth': 7, 'learning_rate': 0.01, 'subsample': 1.0, 'colsample_bytree': 1.0}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,XGBoost,123,0.8018649410983905,0.37,"{'n_estimators': 50, 'max_depth': 7, 'learning_rate': 0.1, 'subsample': 1.0, 'colsample_bytree': 0.8}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,XGBoost,456,0.7644557823129251,0.46,"{'n_estimators': 100, 'max_depth': 5, 'learning_rate': 0.1, 'subsample': 1.0, 'colsample_bytree': 0.8}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,XGBoost,789,0.7417471819645733,0.44,"{'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.01, 'subsample': 0.8, 'colsample_bytree': 0.8}"
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,XGBoost,2024,0.7539408678125034,0.24,"{'n_estimators': 100, 'max_depth': 7, 'learning_rate': 0.1, 'subsample': 0.8, 'colsample_bytree': 1.0}"
+all-mpnet-base-v2,Logistic Regression,42,0.724325057658391,0.45,"{'C': 0.1, 'penalty': 'l1', 'solver': 'saga', 'max_iter': 2000}"
+all-mpnet-base-v2,Logistic Regression,123,0.691394415786457,0.34,"{'C': 0.1, 'penalty': 'l1', 'solver': 'saga', 'max_iter': 2000}"
+all-mpnet-base-v2,Logistic Regression,456,0.7388939485934021,0.32,"{'C': 0.005, 'penalty': 'l2'}"
+all-mpnet-base-v2,Logistic Regression,789,0.6825396825396824,0.25,"{'C': 0.1, 'penalty': 'l1', 'solver': 'saga', 'max_iter': 2000}"
+all-mpnet-base-v2,Logistic Regression,2024,0.7189119900833897,0.29,"{'C': 0.005, 'penalty': 'l2'}"
+all-mpnet-base-v2,Random Forest,42,0.7141779788838613,0.39,"{'n_estimators': 100, 'max_depth': None, 'min_samples_split': 5, 'min_samples_leaf': 2}"
+all-mpnet-base-v2,Random Forest,123,0.7274878295895423,0.43,"{'n_estimators': 100, 'max_depth': 7, 'min_samples_split': 5, 'min_samples_leaf': 1}"
+all-mpnet-base-v2,Random Forest,456,0.7294420555290121,0.45,"{'n_estimators': 100, 'max_depth': 3, 'min_samples_split': 5, 'min_samples_leaf': 1}"
+all-mpnet-base-v2,Random Forest,789,0.7008237439476828,0.4,"{'n_estimators': 50, 'max_depth': None, 'min_samples_split': 10, 'min_samples_leaf': 4}"
+all-mpnet-base-v2,Random Forest,2024,0.7043255295429208,0.43,"{'n_estimators': 50, 'max_depth': 3, 'min_samples_split': 2, 'min_samples_leaf': 4}"
+all-mpnet-base-v2,SVM-RBF,42,0.7206955496610669,0.4,"{'C': 1, 'gamma': 0.001}"
+all-mpnet-base-v2,SVM-RBF,123,0.6854497354497355,0.39,"{'C': 100, 'gamma': 'scale'}"
+all-mpnet-base-v2,SVM-RBF,456,0.752248875562219,0.39,"{'C': 1, 'gamma': 0.001}"
+all-mpnet-base-v2,SVM-RBF,789,0.6940966010733453,0.48,"{'C': 0.1, 'gamma': 'scale'}"
+all-mpnet-base-v2,SVM-RBF,2024,0.7218560368277882,0.35,"{'C': 1, 'gamma': 'scale'}"
+all-mpnet-base-v2,SVM-Linear,42,0.7034206103973545,0.4,{'C': 0.001}
+all-mpnet-base-v2,SVM-Linear,123,0.6891902899967416,0.37,{'C': 0.001}
+all-mpnet-base-v2,SVM-Linear,456,0.7355239430975757,0.38,{'C': 0.001}
+all-mpnet-base-v2,SVM-Linear,789,0.6842424242424242,0.46,{'C': 0.01}
+all-mpnet-base-v2,SVM-Linear,2024,0.7004240422959636,0.31,{'C': 0.001}
+all-mpnet-base-v2,XGBoost,42,0.724001422306507,0.17,"{'n_estimators': 100, 'max_depth': 5, 'learning_rate': 0.3, 'subsample': 1.0, 'colsample_bytree': 0.8}"
+all-mpnet-base-v2,XGBoost,123,0.717948717948718,0.44,"{'n_estimators': 50, 'max_depth': 5, 'learning_rate': 0.01, 'subsample': 0.8, 'colsample_bytree': 0.8}"
+all-mpnet-base-v2,XGBoost,456,0.737239504681365,0.39,"{'n_estimators': 200, 'max_depth': 5, 'learning_rate': 0.3, 'subsample': 1.0, 'colsample_bytree': 1.0}"
+all-mpnet-base-v2,XGBoost,789,0.7002977291545549,0.17,"{'n_estimators': 50, 'max_depth': 3, 'learning_rate': 0.3, 'subsample': 1.0, 'colsample_bytree': 1.0}"
+all-mpnet-base-v2,XGBoost,2024,0.6907082521117608,0.13,"{'n_estimators': 100, 'max_depth': 5, 'learning_rate': 0.1, 'subsample': 1.0, 'colsample_bytree': 0.8}"

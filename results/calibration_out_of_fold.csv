@@ -1,0 +1,186 @@
+SPECIES,y,P_oof_mean,P_oof_sd_across_repeats
+Pelargonium sidoides,1,0.244,0.0368
+Quassia amara,1,0.6858,0.0256
+Himatanthus sucuuba,1,0.64,0.0409
+Pimpinella anisum,1,0.3261,0.0276
+Tinospora sinensis,1,0.7902,0.0178
+Apium graveolens,0,0.4661,0.0313
+Psychotria zombamontana Kuntze,1,0.4782,0.0224
+Cremaspora triflora,1,0.4826,0.0188
+Warburgia ugandensis,1,0.3848,0.0368
+Psiadia punctulata,1,0.5174,0.0196
+Chasmanthera dependens,1,0.6127,0.0216
+Urtica dioica ,1,0.6668,0.0265
+Andrographis paniculata,0,0.4578,0.0267
+Tridax procumbens,0,0.3951,0.0477
+Dalbergia odorifera,0,0.3564,0.0309
+Curcuma longa,0,0.8119,0.0113
+Croton cajucara,1,0.598,0.0274
+Chenopodium  ambrosioides ,0,0.5675,0.0294
+Spiranthera odoratíssima,1,0.4085,0.0231
+Eugenia uniflora,0,0.5096,0.0318
+Asphodelus microcarpus,1,0.5484,0.0557
+Pistacia vera,0,0.3276,0.0266
+Ziziphora tenuior (Z. tenuior) ,0,0.3567,0.0279
+Withania somnifera,1,0.7604,0.0213
+Morus alba,0,0.4086,0.0268
+Cedrus deodara,1,0.4478,0.0212
+Calophyllum brasiliense,0,0.2719,0.0399
+Humulus lupulus L,0,0.1768,0.0138
+Triticum aestivum,0,0.1821,0.0313
+Coccinia grandis,1,0.8291,0.0195
+Echinacea purpurea,0,0.3409,0.0311
+"Desmodium
+gangeticum",1,0.5916,0.0362
+Calendula officinalis,0,0.3785,0.0363
+Zingiber officinale,1,0.7427,0.0316
+Couroupita guianensis,0,0.2985,0.0232
+Mimosa scabrella,1,0.6952,0.0302
+Psidium guajava ,0,0.522,0.0212
+Croton Cajucara(red sacaca),1,0.7117,0.025
+Solanum nudum,1,0.8038,0.0237
+Artemisia nilagrica,1,0.5508,0.0327
+Camellia japonica,0,0.2872,0.032
+potato tuber,1,0.8229,0.0163
+Calotropis procera,0,0.6611,0.0293
+Crocus sativus,1,0.6104,0.0341
+Nerium oleander,0,0.2232,0.024
+Achyranthes bidentata,1,0.4646,0.039
+Cuminum cyminum Linn,0,0.343,0.0242
+Ceratonia siliqua,0,0.5412,0.0339
+Limoniastrum guyonianum,1,0.4046,0.022
+Zataria multiflora,1,0.1636,0.0138
+Daphne oleoides Schreb. subsp. Oleoides,0,0.284,0.0241
+Thymus vulgaris,0,0.315,0.0315
+Eucalyptus globulus Labil,0,0.4019,0.0347
+Angelica sinensis & Sophora flavescens,0,0.2387,0.0288
+Astragalus membranaceus ,0,0.2434,0.0261
+Scutellaria baicalensis ,0,0.5437,0.0556
+Ilex asprella,1,0.4043,0.032
+Isatis indigotica Fort.,0,0.3465,0.0464
+Eucommia ulmoides,0,0.4464,0.0322
+Phytolacca acinosa ,0,0.2122,0.0257
+Corydalis turtschaninovi,0,0.3552,0.0319
+Aconitum carmichaelii,0,0.2001,0.0141
+Coptis chinensis,0,0.2584,0.0262
+Trillium tschonoskii,0,0.2593,0.0155
+Glycyrrhiza glabra,1,0.3681,0.0221
+ Artemisia argyi,0,0.1939,0.0139
+Anemarrhena asphodeloides,0,0.2347,0.0198
+Cinnamomum verum,1,0.4907,0.038
+Carthamus tinctorius,1,0.4645,0.0369
+Scrophularia striata,0,0.3057,0.0377
+Cinnamomum camphora,0,0.43,0.0258
+Vitis vinifera,0,0.2337,0.0395
+Gymnosporia senegalensis,0,0.527,0.0358
+ Hypericum  carinatum,0,0.6073,0.0309
+Zingiber zerumbet ,0,0.3096,0.018
+Achillea millefolium,0,0.293,0.0194
+Radix Paeoniae Alba,0,0.1585,0.0224
+Bauhinia variegata,0,0.1967,0.0292
+Ficus carica,0,0.3109,0.0293
+Mentha piperita,0,0.4784,0.0372
+Lupinus angustifolius,1,0.5237,0.0385
+Thymus carnosus ,0,0.3013,0.026
+Thymus camphoratus,0,0.2678,0.0277
+Agrimonia pilosa,0,0.3093,0.0143
+Tanacetum vulgare L,1,0.3114,0.0301
+Santolina impressa,0,0.195,0.0156
+Artemisia fragrans (A. fragrans),0,0.3826,0.0304
+Chamaecyparis formosensis,0,0.17,0.0136
+Brasenia schreberi,0,0.3295,0.02
+Magnolia grandiflora ,0,0.1703,0.0208
+Syzygium cumini,1,0.7622,0.021
+Ocimum gratissimum,1,0.6318,0.0342
+Piper claussenianum,1,0.7099,0.0316
+Azadirachta indica ,1,0.5646,0.0439
+Vernonia amygdalina,0,0.6044,0.0342
+Mimosa caesalpiniifolia,1,0.6881,0.0306
+Centella asiatica Linnaeus,1,0.7189,0.0258
+Larrea divaricata,1,0.6397,0.021
+Moringa oleifera,0,0.484,0.0287
+Punica granatum,0,0.6634,0.0334
+Centaurium erythraea,0,0.7004,0.0256
+Gynura procumbens,0,0.5799,0.0332
+ Tamarindus indica ,0,0.4605,0.0178
+Buchanania lanzan,0,0.3618,0.0362
+Anthemis wiedemanniana,0,0.2348,0.024
+Oenanthe crocata,0,0.1948,0.021
+Laurencia Dendroidea,0,0.3348,0.0118
+Centella asiatica (CA),0,0.4766,0.0319
+Morinda citrifolia ,1,0.6231,0.0226
+ Artemisia dracunculus ,1,0.5458,0.0282
+Saussurea lappa ,0,0.3245,0.0258
+Cordyceps sinensis,0,0.4128,0.0299
+Citrus sunki ,0,0.1,0.013
+"Fortunella
+japonica var. margarita",0,0.091,0.014
+Pistacia lentiscus,0,0.1383,0.0399
+Ulva lactuca,0,0.3092,0.0204
+Rheum palmatum,1,0.2352,0.02
+Baphicacanthus cusia (Indigo Naturalis),0,0.2634,0.0341
+Cocos nucifera Linn . (Palmae),1,0.7772,0.0295
+Albizia coriaria,1,0.7727,0.0274
+Piper angustifolium,1,0.448,0.0511
+Arrabidaea chica ,1,0.6522,0.0226
+Zanthoxylum rhoifolium,1,0.7463,0.0134
+Sida santaremnensis H. Monteiro,0,0.427,0.0228
+Flemingia vestita,1,0.4634,0.032
+Echium amoenum,1,0.4891,0.0161
+Agave americana,1,0.548,0.0248
+Sterculia villosa,1,0.8107,0.0157
+Tephrosia vogelii,1,0.71,0.0243
+Veronica persica,1,0.7484,0.0216
+Synadenium carinatum,0,0.8738,0.0138
+Clerodendrum myricoides,1,0.5445,0.0235
+Salvadora persica,1,0.613,0.0274
+Nuphar lutea,1,0.6579,0.0243
+Protium paniculatum var. modestum (PPM,0,0.4765,0.0226
+Sambucus ebulus,1,0.678,0.034
+Protium javanicum Burm,0,0.2904,0.0188
+ Croton caudatus,1,0.7677,0.0146
+parviflora Kaempferia,0,0.1083,0.0159
+Pinus densiflora (Pine Tree),0,0.4828,0.0414
+Rhinacanthus nasutus ,1,0.3813,0.0257
+Platycodon grandiflorum,0,0.3113,0.0203
+ Vitex peduncularis,1,0.713,0.0297
+Oenothera laciniata,0,0.3656,0.0205
+Oenothera biennis L,0,0.1046,0.0297
+Cnidium officinale Makino,0,0.119,0.0193
+Selaginella sellowii ,1,0.7394,0.0212
+Piper aduncum,0,0.463,0.0209
+Lonicera japonica Thunb,0,0.1891,0.0152
+Panax ginseng ,0,0.3378,0.0407
+Camellia sinensis,1,0.207,0.0264
+Aesculus hippocastanum L,1,0.5247,0.0338
+Murraya koenigii,1,0.5186,0.025
+Curcuma phaeocaulis,0,0.207,0.016
+Curcuma kwangsiensis,0,0.1543,0.0147
+Smilax glabra,1,0.3812,0.0376
+Solidago microglossa,0,0.3157,0.0273
+Thuya occidentalis_Bryonia alba_Aconitum napellus ,1,0.5373,0.0377
+Periploca laevigata,0,0.3333,0.0252
+Rhus tripartitum,0,0.5213,0.0242
+Scutellaria barbata,0,0.2358,0.0156
+Eupatorium adenophorum,1,0.5131,0.0316
+Centipeda minima,0,0.1419,0.0109
+Piper nigrum,1,0.835,0.0143
+Peschiera australis ,1,0.7935,0.0259
+Baccharis uncinella,1,0.4709,0.0232
+Ziziphus spina-christi,1,0.4328,0.0241
+Pistacia khinjuk,1,0.5765,0.0204
+Pistacia khinjuk,0,0.6275,0.0259
+ Casearia arborea,1,0.2421,0.0353
+BURSERA APTERA,1,0.7465,0.0401
+Pinus elliottii,1,0.5724,0.0325
+Cytisus villosus Pourr.,0,0.3311,0.0231
+Eugenia piauhiensis,1,0.2484,0.0258
+Nectandra leucantha,0,0.5662,0.0248
+Lophatherum gracile ,0,0.2051,0.0278
+Panax notoginseng,1,0.3776,0.0352
+Ligustrum purpurascens ,1,0.4729,0.0376
+Pedilanthus tithymaloides,0,0.4646,0.0404
+Rhodiola rosea,0,0.3386,0.0302
+Kielmeyera membranacea,0,0.4112,0.0319
+Solanum lycocarpum,1,0.6541,0.0217
+Panax quinquefolius L,1,0.3938,0.0472

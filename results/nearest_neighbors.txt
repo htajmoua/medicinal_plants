@@ -1,0 +1,207 @@
+==========================================================================================
+  Myrtus communis  |  P=0.588  |  POSITIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Rhus tripartitum                    [IMMUNO-] sim=0.996
+     region: TUNISIA  |  part: root barks
+     metabolites: phenol
+     microorganism: Staphylococcus aureus
+  2. Morinda citrifolia                  [IMMUNO+] sim=0.996
+     region: BRAZIL  |  part: FRUIT
+     metabolites: phenolic compound 
+     microorganism: Leishmania amazonensis
+  3. Larrea divaricata                   [IMMUNO+] sim=0.996
+     region: ARGENTINA  |  part: LEAF_BRANCHE
+     metabolites: Unknown
+     microorganism:  Mycobacterium tuberculosis
+
+==========================================================================================
+  Salvia clandestina  |  P=0.538  |  POSITIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Rhus tripartitum                    [IMMUNO-] sim=0.996
+     region: TUNISIA  |  part: root barks
+     metabolites: phenol
+     microorganism: Staphylococcus aureus
+  2. Gymnosporia senegalensis            [IMMUNO-] sim=0.995
+     region: SOUTH AFRICA  |  part: LEAF
+     metabolites: alkaloid phenol terpen steroid 
+     microorganism: Mycobacterium tuberculosis bacteria
+  3. Larrea divaricata                   [IMMUNO+] sim=0.995
+     region: ARGENTINA  |  part: LEAF_BRANCHE
+     metabolites: Unknown
+     microorganism:  Mycobacterium tuberculosis
+
+==========================================================================================
+  Origanum elongatum  |  P=0.458  |  POSITIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Protium paniculatum var. modestum (PPM [IMMUNO-] sim=0.992
+     region: BRAZIL  |  part: oleoresins EO
+     metabolites: Triterpenes
+     microorganism: nd
+  2. Psiadia punctulata                  [IMMUNO+] sim=0.992
+     region: KENYA  |  part: STEM BARK_LEAF
+     metabolites:  flavones and phenyl propenoids phenol
+     microorganism: L.Major
+  3. Pedilanthus tithymaloides           [IMMUNO-] sim=0.992
+     region: india  |  part: leaf
+     metabolites: luteolin  phenol
+     microorganism: Herpes Simplex Virus (HSV)HSV-2G (ATCC734) Virus
+
+==========================================================================================
+  Capparis spinosa  |  P=0.414  |  POSITIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Gynura procumbens                   [IMMUNO-] sim=0.996
+     region: MALAYSIA  |  part: WHOLE PLANT
+     metabolites: ALKALOID_PHENOL_sterol
+     microorganism: Unknown
+  2. Moringa oleifera                    [IMMUNO-] sim=0.995
+     region: Thailand  |  part: POD_SEED
+     metabolites: Unknown
+     microorganism: Unknown
+  3. Artemisia dracunculus               [IMMUNO+] sim=0.995
+     region: IRAN  |  part: Unknown
+     metabolites: artemisinin: Terpen_ALKALOID_PHENOL
+     microorganism: Leishmania major
+
+==========================================================================================
+  Origanum compactum  |  P=0.409  |  POSITIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Rhus tripartitum                    [IMMUNO-] sim=0.995
+     region: TUNISIA  |  part: root barks
+     metabolites: phenol
+     microorganism: Staphylococcus aureus
+  2. Gymnosporia senegalensis            [IMMUNO-] sim=0.995
+     region: SOUTH AFRICA  |  part: LEAF
+     metabolites: alkaloid phenol terpen steroid 
+     microorganism: Mycobacterium tuberculosis bacteria
+  3. Echium amoenum                      [IMMUNO+] sim=0.995
+     region: IRAN  |  part: Flowers 
+     metabolites: phenol, alkaloid and terpene ( main component)
+     microorganism: L. major strain MRHO/IR/75/ER
+
+==========================================================================================
+  Warionia saharae  |  P=0.406  |  POSITIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Rhus tripartitum                    [IMMUNO-] sim=0.995
+     region: TUNISIA  |  part: root barks
+     metabolites: phenol
+     microorganism: Staphylococcus aureus
+  2. Scrophularia striata                [IMMUNO-] sim=0.995
+     region: IRAN  |  part: Aerial part
+     metabolites: Flavonoid phenol
+     microorganism: Staphylococcus aureus ATCC 25923, Staphylococcus e
+  3. Gymnosporia senegalensis            [IMMUNO-] sim=0.995
+     region: SOUTH AFRICA  |  part: LEAF
+     metabolites: alkaloid phenol terpen steroid 
+     microorganism: Mycobacterium tuberculosis bacteria
+
+==========================================================================================
+  Ephedra altissima  |  P=0.394  |  POSITIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Rhus tripartitum                    [IMMUNO-] sim=0.995
+     region: TUNISIA  |  part: root barks
+     metabolites: phenol
+     microorganism: Staphylococcus aureus
+  2. Scrophularia striata                [IMMUNO-] sim=0.995
+     region: IRAN  |  part: Aerial part
+     metabolites: Flavonoid phenol
+     microorganism: Staphylococcus aureus ATCC 25923, Staphylococcus e
+  3. Gymnosporia senegalensis            [IMMUNO-] sim=0.994
+     region: SOUTH AFRICA  |  part: LEAF
+     metabolites: alkaloid phenol terpen steroid 
+     microorganism: Mycobacterium tuberculosis bacteria
+
+==========================================================================================
+  Euphorbia echinus  |  P=0.387  |  NEGATIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Cinnamomum camphora                 [IMMUNO-] sim=0.995
+     region: Korea  |  part: LEAF
+     metabolites: camphor terpene alkaloid
+     microorganism: Unknown
+  2. Larrea divaricata                   [IMMUNO+] sim=0.994
+     region: ARGENTINA  |  part: LEAF_BRANCHE
+     metabolites: Unknown
+     microorganism:  Mycobacterium tuberculosis
+  3. Eucommia ulmoides                   [IMMUNO-] sim=0.994
+     region: CHINA  |  part: FLOWER
+     metabolites: Unknown
+     microorganism: Unknown
+
+==========================================================================================
+  Ephedra fragilis  |  P=0.352  |  NEGATIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Gynura procumbens                   [IMMUNO-] sim=0.995
+     region: MALAYSIA  |  part: WHOLE PLANT
+     metabolites: ALKALOID_PHENOL_sterol
+     microorganism: Unknown
+  2. Limoniastrum guyonianum             [IMMUNO+] sim=0.995
+     region: TUNISIA  |  part: GALL
+     metabolites:  flavonoids, tannins and polyphenols phenol
+     microorganism: Unknown
+  3. Eucommia ulmoides                   [IMMUNO-] sim=0.995
+     region: CHINA  |  part: FLOWER
+     metabolites: Unknown
+     microorganism: Unknown
+
+==========================================================================================
+  Lavandula dentata  |  P=0.345  |  NEGATIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Scrophularia striata                [IMMUNO-] sim=0.995
+     region: IRAN  |  part: Aerial part
+     metabolites: Flavonoid phenol
+     microorganism: Staphylococcus aureus ATCC 25923, Staphylococcus e
+  2. Gymnosporia senegalensis            [IMMUNO-] sim=0.995
+     region: SOUTH AFRICA  |  part: LEAF
+     metabolites: alkaloid phenol terpen steroid 
+     microorganism: Mycobacterium tuberculosis bacteria
+  3. Kielmeyera membranacea              [IMMUNO-] sim=0.995
+     region: BRAZIL  |  part: leaf(Dichloromethane)
+     metabolites: triterpene
+     microorganism: t Mycobacterium tuberculosis H37Rv (ATCC 27294).ba
+
+==========================================================================================
+  Unknown  |  P=0.312  |  NEGATIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Eucommia ulmoides                   [IMMUNO-] sim=0.986
+     region: CHINA  |  part: FLOWER
+     metabolites: Unknown
+     microorganism: Unknown
+  2. Moringa oleifera                    [IMMUNO-] sim=0.984
+     region: Thailand  |  part: POD_SEED
+     metabolites: Unknown
+     microorganism: Unknown
+  3. Tamarindus indica                   [IMMUNO-] sim=0.984
+     region: THAILAND  |  part: SEED
+     metabolites: phenol
+     microorganism: Unknown
+
+==========================================================================================
+  Unknown  |  P=0.309  |  NEGATIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Eucommia ulmoides                   [IMMUNO-] sim=0.984
+     region: CHINA  |  part: FLOWER
+     metabolites: Unknown
+     microorganism: Unknown
+  2. Tamarindus indica                   [IMMUNO-] sim=0.983
+     region: THAILAND  |  part: SEED
+     metabolites: phenol
+     microorganism: Unknown
+  3. Moringa oleifera                    [IMMUNO-] sim=0.982
+     region: Thailand  |  part: POD_SEED
+     metabolites: Unknown
+     microorganism: Unknown
+
+==========================================================================================
+  Cannabis sativa  |  P=0.215  |  NEGATIVE
+──────────────────────────────────────────────────────────────────────────────────────────
+  1. Santolina impressa                  [IMMUNO-] sim=0.995
+     region: Portugal  |  part: stems
+     metabolites:  monoterpene hydrocarbons and oxygenated monoterpenes,  β-pinene , 1,8-cineole ,
+     microorganism: C.albicans fungus
+  2. Laurencia Dendroidea                [IMMUNO-] sim=0.995
+     region: BRAZIL  |  part: WHOLE PLANT
+     metabolites: l (1), obtusol (2), and cartilagineol terpene
+     microorganism: Mycobacterium tuberculosis.bacteria
+  3. Anthemis wiedemanniana              [IMMUNO-] sim=0.995
+     region: TURKEY  |  part: Aerial parts
+     metabolites: sesquiterpenes (10.1%). The presence of irregular monoterpenes terpene
+     microorganism: Bacillus cereus (ATCC 11778) 50 50 1.56 Bacillus s

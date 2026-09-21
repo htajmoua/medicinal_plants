@@ -1,0 +1,18 @@
+SPECIES,REGION,USED PART,METABOLITE CONTENT,TESTED MICROORGANISME,EFFECTIVE CONCENTRATION,REFERENCE,P_class1,Prediction_t0.39,P_boot_95CI,Freq_induction_boot
+Myrtus communis,MOROCCO,leaf,"PHENOL COMPOUND  
+
+",PARASITE,IC50:303-500ug/ml,A. Bouyahya et al.;2018,0.588,1,0.454-0.721,1.0
+Salvia clandestina,MOROCCO,the whole plant,PHENOL COMPOUND,PARASITE,"IC50 :
+>1000 ug/ml",Et-Touys et al.;2016,0.538,1,0.427-0.678,0.995
+Origanum elongatum,MOROCCO,leaf_flower,PHENOL_TERPEN,"VIRUS(murine norovirus 
+(MNV-1),",ct: 2%,El Moussaoui et al ;2013,0.458,1,0.314-0.640,0.839
+Capparis spinosa,MOROCCO,leaf/Aerial part,PHENOL_ STEROL_  ALKALOID_TERPEN ,Unknown,ND,"fadili et al; 2017/Riadh Ben Mansour,2016",0.414,1,0.273-0.597,0.689
+Origanum compactum,MOROCCO,Aerial parts,TERPEN,PARASITE,"IC50 :0,02-0,72ug/ml",Bouyahya et al;2017,0.409,1,0.305-0.550,0.678
+Warionia saharae,MOROCCO,Aerial parts,TERPEN,BACTERIE,MIC:0.039-6.25mg/ml,sellam et al;2014,0.406,1,0.295-0.566,0.645
+Ephedra altissima,MOROCCO,root,PHENOL COMPOUND,BACTERIE,MIC: 4.00 and 16.00 mg/ml,zeouk et al ;2019,0.394,1,0.285-0.537,0.579
+Euphorbia echinus,MOROCCO,the whole plant,"PHENOL COMPOUND  
+
+",Unknown,ND,lahlou et al ;2014,0.387,0,0.257-0.564,0.553
+Ephedra fragilis,MOROCCO,Aerial parts,PHENOL COMPOUND,Unknown,ND,Guenaou et al;2021,0.352,0,0.238-0.540,0.378
+Lavandula dentata,MOROCCO,Aerial parts,TERPEN,BACTERIE,MIC:0.041- 0.338 mg/ml,B. IMELOUANE et al; 2009,0.345,0,0.252-0.497,0.344
+Cannabis sativa,MOROCCO,Aerial parts,"(E)-caryophyllene, α-humulene and caryophyllene(terpene)",Pseudomonas  aeruginosa(DSM50090…Bacterie ,MIC : 1.2–37.8 mg/mL,nafis et al ;2019,0.215,0,0.139-0.359,0.009

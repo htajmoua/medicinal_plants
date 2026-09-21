@@ -1,0 +1,2 @@
+Embedding,Classifier,Params,Threshold,Test_Accuracy,Test_F1,Test_Precision,Test_Recall,Test_AP,Test_AUC
+BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext,Logistic Regression,"{'C': 0.001, 'penalty': 'l2'}",0.39,0.7567567567567568,0.7428571428571429,0.7222222222222222,0.7647058823529411,0.865010775228828,0.8352941176470589

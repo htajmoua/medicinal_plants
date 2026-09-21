@@ -1,0 +1,5 @@
+SPECIES,REGION,USED PART,Pred_OptT,Prob_Class1
+Kalanchoe pinnata,BRAZIL,leaf,1,0.7652353715823356
+Phyllanthus amarus,INDIA, the aerial parts ,1,0.6871254524982171
+Empetrum nigrum L.,korea, the aerial parts ,0,0.37637126065434817
+Eremanthus crotonoides,brazil,leaf(Crude Extract),1,0.4374075123116722

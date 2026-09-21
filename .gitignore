@@ -1,0 +1,12 @@
+# data is downloaded from Zenodo (see README)
+data/*.xlsx
+# cached embeddings and bootstrap draws
+cache/
+*.npy
+# environment and system files
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.orig_results/

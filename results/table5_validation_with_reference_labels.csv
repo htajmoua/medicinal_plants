@@ -1,0 +1,5 @@
+SPECIES,REGION,USED PART,METABOLITE CONTENT,TESTED MICROORGANISME,EFFECTIVE CONCENTRATION,REPORTED_EFFECT,REF_LABEL,REFERENCE,P_class1,Prediction_t0.39,Agreement,Freq_induction_boot
+Kalanchoe pinnata,BRAZIL,leaf,Unknown,Leishmania chagasi parasite,in vivo:400 mg/kg,production of NO ,1,"Gommes et  all , 2009(articles)",0.765,1,yes,1.0
+Phyllanthus amarus,INDIA, the aerial parts ,"Niranthin,lignan(phenol)",Leishmania Donovani (parasite,in vivo:5 and 10 mg/kg/day,production of NO and IFNy and ROS,1,"Sayan Chowdhury,2012",0.687,1,yes,1.0
+Empetrum nigrum L.,korea, the aerial parts ,phenol,Unknown,CE:100 and 200 lg/ml(NO),inhibition  of NO  and TNFa production ,0,"Tae Kyung Hyun,2016",0.376,0,yes,0.48
+Eremanthus crotonoides,brazil,leaf(Crude Extract),fatty acid(lipid),t Mycobacterium tuberculosis H37Rv (ATCC 27294).bacterie,IC50:<0.8ug/ml(NO)  IC50:5.83±1.40ug/ml(TNF a),inhibition  of NO  and TNFa production ,0,"Marlon Heggdorne de Araujo,2021",0.437,1,NO,0.767
