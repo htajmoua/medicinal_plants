@@ -10,3 +10,6 @@ __pycache__/
 *.pyc
 .DS_Store
 .orig_results/
+# manuscript and reply files kept next to the code are not published
+/*.docx
+/*.pdf
