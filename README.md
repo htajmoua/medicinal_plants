@@ -10,7 +10,7 @@ The task is to predict, from literature-derived descriptors of a plant extract (
 
 The dataset (183 labelled records, 4 validation plants and 11 Moroccan plants, with the literature reference of every record) is deposited on Zenodo:
 
-Assouab A., Akarid K. (2026). *Dataset of Medicinal Plants with Immunomodulatory Properties: Phytotherapeutic Attributes and Binary Classification Labels.* Zenodo. https://doi.org/10.5281/zenodo.19451645 (concept DOI, resolves to the latest version; version 2, which also contains this code, the model inputs and the results, is https://doi.org/10.5281/zenodo.22882949)
+Assouab A., Akarid K. (2026). *Dataset of Medicinal Plants with Immunomodulatory Properties: Phytotherapeutic Attributes and Binary Classification Labels.* Zenodo. https://doi.org/10.5281/zenodo.19451645
 
 Download the workbook into `data/` before running the scripts:
 
@@ -42,10 +42,10 @@ Run the scripts from the repository root, in numerical order. Intermediate embed
 | `01_encode_embeddings.py` | Serializes the 183 records and encodes them with BiomedBERT and all-mpnet-base-v2 | (`cache/`) | Sections 2.2, 2.3 |
 | `02_model_selection.py` | Fixed stratified 80/20 split, 3-fold cross-validation repeated over 5 fold shuffles with optimal-threshold F1, grid search for 5 classifiers, single evaluation on the held-out test set | `model_selection_summary.csv`, `model_selection_cv_details.csv`, `test_set_results.csv` | Figure 1, Table 4 |
 | `03_predict_new_plants.py` | Retrains the selected model on all 183 records and scores the validation and Moroccan plants at threshold 0.39 | `predictions_validation_set.csv`, `predictions_moroccan_plants.csv` | Tables 5, 6 |
-| `04_prediction_stability.py` | Bootstrap stability of the scores, threshold sensitivity, calibration of out-of-fold probabilities, Tables 5 and 6 with reference labels and experimental conditions | `prediction_stability_bootstrap.csv`, `threshold_sensitivity.csv`, `calibration_*.csv`, `table5_*.csv`, `table6_*.csv`, `figure_stability_calibration.png` | Revision |
+| `04_prediction_stability.py` | Bootstrap stability of the scores, threshold sensitivity, calibration of out-of-fold probabilities, Tables 5 and 6 with reference labels and experimental conditions | `prediction_stability_bootstrap.csv`, `threshold_sensitivity.csv`, `calibration_*.csv`, `table5_*.csv`, `table6_*.csv`, `figure_stability_calibration.png` | Tables 5-6, Tables S1-S2, Figure S1 |
 | `05_figure_model_selection.py` | Bar chart of the cross-validated F1 scores | `figure_model_selection.png` | Figure 1 |
-| `06_figure_pca.py` | PCA of the embedding space with the new plants projected, explained variance, score ranking | `figure_pca_embedding_space.png` | Revision |
-| `07_nearest_neighbors.py` | Closest training records of each Moroccan plant in embedding space | `nearest_neighbors.txt` | Discussion |
+| `06_figure_pca.py` | PCA of the embedding space with the new plants projected, explained variance, score ranking | `figure_pca_embedding_space.png` | Figure 2 |
+| `07_nearest_neighbors.py` | Closest training records of each Moroccan plant in embedding space | `nearest_neighbors.txt` | Table S3 |
 
 Script 02 is the longest step because it evaluates the full hyperparameter grids of the five classifiers for both encoders. The other scripts run in a few minutes on a laptop.
 

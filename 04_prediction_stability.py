@@ -170,8 +170,8 @@ mor_mask = np.array(group) == 'Moroccan'
 ranks = (-P[:, mor_mask]).argsort(1).argsort(1) + 1
 rank_mean = np.full(len(names), np.nan); rank_lo = rank_mean.copy(); rank_hi = rank_mean.copy()
 rank_mean[mor_mask] = ranks.mean(0)
-rank_lo[mor_mask] = np.percentile(ranks, 2.5, axis=0)
-rank_hi[mor_mask] = np.percentile(ranks, 97.5, axis=0)
+rank_lo[mor_mask] = np.round(np.percentile(ranks, 2.5, axis=0))
+rank_hi[mor_mask] = np.round(np.percentile(ranks, 97.5, axis=0))
 boot['Rank_boot_mean'] = np.round(rank_mean, 1)
 boot['Rank_boot_2.5%'] = rank_lo
 boot['Rank_boot_97.5%'] = rank_hi
@@ -277,7 +277,7 @@ ax = fig.add_subplot(gs[0, :])
 order = np.argsort(-p_point)
 data = [P[:, i] for i in order]
 labels = [f"{names[i]}{' (val.)' if group[i]=='validation' else ''}" for i in order]
-bp = ax.boxplot(data, vert=False, showfliers=False, patch_artist=True, widths=0.6)
+bp = ax.boxplot(data, vert=False, showfliers=False, patch_artist=True, widths=0.6, whis=(2.5, 97.5))
 for patch, i in zip(bp['boxes'], order):
     patch.set_facecolor('#f4a582' if group[i] == 'Moroccan' else '#92c5de'); patch.set_alpha(0.8)
 ax.scatter(p_point[order], np.arange(1, len(order) + 1), marker='D', color='k', s=12, zorder=5, label='point estimate (100% of the data)')

@@ -28,43 +28,47 @@ ev = pca_full.explained_variance_ratio_
 print(f"PC1={ev[0]:.1%}, PC2={ev[1]:.1%}, PC1+PC2={ev[:2].sum():.1%}; components for 95% variance = {n95}")
 
 plt.rcParams.update({'font.size': 7.5, 'axes.titlesize': 8, 'axes.labelsize': 7.5, 'legend.fontsize': 6, 'xtick.labelsize': 6.5, 'ytick.labelsize': 6.5})
-fig = plt.figure(figsize=(7.2, 5.9))
+fig = plt.figure(figsize=(7.2, 6.3))
 gs = fig.add_gridspec(2, 2, width_ratios=[1.12, 1], height_ratios=[0.8, 1.2], hspace=0.45, wspace=0.62,
-                      left=0.06, right=0.99, top=0.95, bottom=0.08)
+                      left=0.06, right=0.99, top=0.95, bottom=0.075)
+gsA = gs[:, 0].subgridspec(2, 1, height_ratios=[1, 0.16], hspace=0.22)
 # ---- A: PC1 x PC2 ----
-ax = fig.add_subplot(gs[:, 0])
+ax = fig.add_subplot(gsA[0])
 ax.scatter(Z_tr[y == 0, 0], Z_tr[y == 0, 1], s=14, c='#4393c3', alpha=0.55, lw=0, label='training, inhibition (class 0, n=101)')
 ax.scatter(Z_tr[y == 1, 0], Z_tr[y == 1, 1], s=14, c='#d6604d', alpha=0.55, lw=0, label='training, induction (class 1, n=82)')
+tested = ('Capparis spinosa', 'Ephedra fragilis')
+# numbering follows Tables 5 and 6: validation plants then Moroccan plants, each by decreasing score
+order_num = [i for i in sorted(range(len(names)), key=lambda i: (group[i] != 'validation', -p[i]))]
+num = {names[i]: k + 1 for k, i in enumerate(order_num)}
+offsets = [(8, 8), (8, -13), (-15, 8), (-15, -13)]       # spread the numbers of overlapping markers
+done = []
 for i, (n, g) in enumerate(zip(names, group)):
-    bold = n in ('Capparis spinosa', 'Ephedra fragilis')
+    x0, y0 = Z_new[i, 0], Z_new[i, 1]
+    bold = n in tested
     if g == 'validation':
-        ax.scatter(Z_new[i, 0], Z_new[i, 1], marker='s', s=30, c='#1b7837', edgecolor='k', lw=0.5, zorder=5)
+        ax.scatter(x0, y0, marker='s', s=30, c='#1b7837', edgecolor='k', lw=0.5, zorder=5)
     else:
-        ax.scatter(Z_new[i, 0], Z_new[i, 1], marker='*', s=110 if bold else 70, c='#e7298a' if bold else '#ffd92f', edgecolor='k', lw=0.5, zorder=6)
-xmax = max(Z_tr[:, 0].max(), Z_new[:, 0].max())
-placed = []
-for i in np.argsort(-Z_new[:, 1]):
-    n = names[i]; x0, y0 = Z_new[i, 0], Z_new[i, 1]
-    bold = n in ('Capparis spinosa', 'Ephedra fragilis')
-    crowded = any(np.hypot(x0 - Z_new[j, 0], y0 - Z_new[j, 1]) < 3.5 for j in range(len(names)) if j != i)
-    if crowded:
-        yl = y0
-        while any(abs(yl - p_) < 1.7 for p_ in placed):
-            yl -= 1.7
-        placed.append(yl)
-        ax.annotate(n, (x0, y0), xytext=(xmax + 2.5, yl), textcoords='data', fontsize=5.5, va='center',
-                    fontweight='bold' if bold else 'normal', arrowprops=dict(arrowstyle='-', color='0.4', lw=0.5, shrinkA=0, shrinkB=2))
-    elif x0 < 0:
-        ax.annotate(n, (x0, y0), textcoords='offset points', xytext=(-4, 2), ha='right', fontsize=5.5, fontweight='bold' if bold else 'normal')
-    else:
-        ax.annotate(n, (x0, y0), textcoords='offset points', xytext=(3, 2), fontsize=5.5, fontweight='bold' if bold else 'normal')
-ax.set_xlim(Z_tr[:, 0].min() - 2, xmax + 21)
+        ax.scatter(x0, y0, marker='*', s=110 if bold else 70, c='#e7298a' if bold else '#ffd92f', edgecolor='k', lw=0.5, zorder=6)
+    near = [j for j in range(len(names)) if j != i and np.hypot(x0 - Z_new[j, 0], y0 - Z_new[j, 1]) < 3.5]
+    k = sum(1 for j in done if j in near)
+    done.append(i)
+    off = offsets[k % 4] if near else (4, 3)
+    ax.annotate(str(num[n]), (x0, y0), textcoords='offset points', xytext=off, fontsize=6.5, zorder=7,
+                fontweight='bold' if bold else 'normal', ha='center', va='center',
+                arrowprops=dict(arrowstyle='-', color='0.3', lw=0.4, shrinkA=0, shrinkB=3) if near else None)
+ax.set_xlim(Z_tr[:, 0].min() - 2, max(Z_tr[:, 0].max(), Z_new[:, 0].max()) + 3)
+ax.set_ylim(Z_tr[:, 1].min() - 2, Z_tr[:, 1].max() + 9)
 ax.scatter([], [], marker='s', s=30, c='#1b7837', edgecolor='k', lw=0.5, label='validation set (n=4)')
 ax.scatter([], [], marker='*', s=70, c='#ffd92f', edgecolor='k', lw=0.5, label='Moroccan prediction set (n=11)')
 ax.scatter([], [], marker='*', s=110, c='#e7298a', edgecolor='k', lw=0.5, label='experimentally tested (C. spinosa, E. fragilis)')
 ax.set_xlabel(f'PC1 ({ev[0]:.1%} of variance)'); ax.set_ylabel(f'PC2 ({ev[1]:.1%} of variance)')
 ax.set_title('(A) PCA of BiomedBERT embeddings, fitted on the 183 labelled records', loc='left')
-ax.legend(loc='lower left', frameon=True, framealpha=0.9, handlelength=1.2)
+ax.legend(loc='upper left', frameon=True, framealpha=0.9, handlelength=1.2, borderpad=0.4)
+# key to the numbered markers, below the axes, two columns
+axk = fig.add_subplot(gsA[1]); axk.axis('off')
+lines = [f"{num[names[i]]:>2}  {names[i]}{' (val.)' if group[i] == 'validation' else ''}" for i in order_num]
+axk.text(0.0, 1.0, '\n'.join(lines[:8]), transform=axk.transAxes, fontsize=5.8, va='top', ha='left', linespacing=1.3)
+axk.text(0.52, 1.0, '\n'.join(lines[8:]), transform=axk.transAxes, fontsize=5.8, va='top', ha='left', linespacing=1.3)
 # ---- B: explained variance ----
 ax = fig.add_subplot(gs[0, 1])
 ax.plot(np.arange(1, len(cum) + 1), cum, color='#2166ac', lw=1.2); ax.axhline(0.95, color='r', ls='--', lw=0.8); ax.axvline(n95, color='r', ls=':', lw=0.8)
