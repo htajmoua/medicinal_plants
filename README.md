@@ -62,6 +62,8 @@ Script 02 is the longest step because it evaluates the full hyperparameter grids
 
 `results/` contains the outputs obtained with the pinned environment. The values reported in the manuscript can be checked against `test_set_results.csv` (Table 4), `predictions_validation_set.csv` (Table 5), `predictions_moroccan_plants.csv` (Table 6) and `model_selection_summary.csv` (Figure 1). The files produced by scripts 04 and 06 were added during the revision of the manuscript.
 
+Reproducibility note: the logistic regression results, the selected model, its threshold and the test set metrics are deterministic and were reproduced exactly with a fresh run of the whole pipeline. In `02_model_selection.py` the random forest and the two SVMs (Platt scaling of the probabilities) are not seeded, so their cross-validated F1 scores in `model_selection_summary.csv` can move by up to about 0.01 between runs without changing the ranking of the encoders or the selected model.
+
 ## License
 
 The code is released under the MIT License (see `LICENSE`). The dataset is distributed by its authors on Zenodo under the Creative Commons Attribution 4.0 license.
