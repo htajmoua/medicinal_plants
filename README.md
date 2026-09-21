@@ -10,7 +10,7 @@ The task is to predict, from literature-derived descriptors of a plant extract (
 
 The dataset (183 labelled records, 4 validation plants and 11 Moroccan plants, with the literature reference of every record) is deposited on Zenodo:
 
-Assouab A., Akarid K. (2026). *Dataset of Medicinal Plants with Immunomodulatory Properties: Phytotherapeutic Attributes and Binary Classification Labels.* Zenodo. https://doi.org/10.5281/zenodo.19451646
+Assouab A., Akarid K. (2026). *Dataset of Medicinal Plants with Immunomodulatory Properties: Phytotherapeutic Attributes and Binary Classification Labels.* Zenodo. https://doi.org/10.5281/zenodo.19451645 (concept DOI, resolves to the latest version; version 2, which also contains this code, the model inputs and the results, is https://doi.org/10.5281/zenodo.22882949)
 
 Download the workbook into `data/` before running the scripts:
 
