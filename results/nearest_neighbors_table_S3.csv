@@ -1,0 +1,46 @@
+Set,Plant,P,Rank,Neighbour,Neighbour_label,Region,Used_part,Metabolites,Microorganism,Cosine
+validation,Kalanchoe pinnata,0.765,1,Chenopodium  ambrosioides,inhibition,BRAZIL,AERIAL PART,Kaempferol phenol,parasite,0.996
+validation,Kalanchoe pinnata,0.765,2,Solanum lycocarpum,induction,BRAZIL,fruit,alkaloid,Schistosoma mansoni parasite,0.996
+validation,Kalanchoe pinnata,0.765,3,potato tuber,induction,INDIA,TUBERCULE,ND,Leishmania donovani,0.996
+validation,Phyllanthus amarus,0.687,1,Psidium guajava,inhibition,INDIA,LEAF,"quercetin,phenols, alkaloids, carbohydrates and steroids as ",Escherichia coli (EPEC) [MTCC-724],0.996
+validation,Phyllanthus amarus,0.687,2,Piper nigrum,induction,india,seed,piperine terpene,Leishmania donovani culture (MHOM/IN/83/AG83),0.995
+validation,Phyllanthus amarus,0.687,3,Chenopodium  ambrosioides,inhibition,BRAZIL,AERIAL PART,Kaempferol phenol,parasite,0.995
+validation,Empetrum nigrum L.,0.376,1,Eucommia ulmoides,inhibition,CHINA,FLOWER,ND,ND,0.997
+validation,Empetrum nigrum L.,0.376,2,Smilax glabra,induction,Korea,root,polysaccharides,ND,0.996
+validation,Empetrum nigrum L.,0.376,3,Chasmanthera dependens,induction,KENYA,STEM BARK_LEAF,berberine type alkaloids,L.Major,0.996
+validation,Eremanthus crotonoides,0.437,1,Kielmeyera membranacea,inhibition,BRAZIL,leaf(Dichloromethane),triterpene,t Mycobacterium tuberculosis H37Rv (ATCC 2729,0.999
+validation,Eremanthus crotonoides,0.437,2,Apium graveolens,inhibition,ITALY,LEAF,apiin phenol,ND (microorganism) but tested on J774cells,0.995
+validation,Eremanthus crotonoides,0.437,3,Echium amoenum,induction,IRAN,Flowers,"phenol, alkaloid and terpene ( main component)",L. major strain MRHO/IR/75/ER,0.995
+Moroccan,Warionia saharae,0.406,1,Rhus tripartitum,inhibition,TUNISIA,root barks,phenol,Staphylococcus aureus,0.995
+Moroccan,Warionia saharae,0.406,2,Scrophularia striata,inhibition,IRAN,Aerial part,Flavonoid phenol,"Staphylococcus aureus ATCC 25923, Staphylococ",0.995
+Moroccan,Warionia saharae,0.406,3,Gymnosporia senegalensis,inhibition,SOUTH AFRICA,LEAF,alkaloid phenol terpen steroid,Mycobacterium tuberculosis bacteria,0.995
+Moroccan,Ephedra altissima,0.394,1,Rhus tripartitum,inhibition,TUNISIA,root barks,phenol,Staphylococcus aureus,0.995
+Moroccan,Ephedra altissima,0.394,2,Scrophularia striata,inhibition,IRAN,Aerial part,Flavonoid phenol,"Staphylococcus aureus ATCC 25923, Staphylococ",0.995
+Moroccan,Ephedra altissima,0.394,3,Gymnosporia senegalensis,inhibition,SOUTH AFRICA,LEAF,alkaloid phenol terpen steroid,Mycobacterium tuberculosis bacteria,0.994
+Moroccan,Ephedra fragilis,0.352,1,Gynura procumbens,inhibition,MALAYSIA,WHOLE PLANT,ALKALOID_PHENOL_sterol,ND,0.995
+Moroccan,Ephedra fragilis,0.352,2,Limoniastrum guyonianum,induction,TUNISIA,GALL,"flavonoids, tannins and polyphenols phenol",ND,0.995
+Moroccan,Ephedra fragilis,0.352,3,Eucommia ulmoides,inhibition,CHINA,FLOWER,ND,ND,0.995
+Moroccan,Capparis spinosa,0.414,1,Gynura procumbens,inhibition,MALAYSIA,WHOLE PLANT,ALKALOID_PHENOL_sterol,ND,0.996
+Moroccan,Capparis spinosa,0.414,2,Moringa oleifera,inhibition,Thailand,POD_SEED,ND,ND,0.995
+Moroccan,Capparis spinosa,0.414,3,Artemisia dracunculus,induction,IRAN,ND,artemisinin: Terpen_ALKALOID_PHENOL,Leishmania major,0.995
+Moroccan,Salvia clandestina,0.538,1,Rhus tripartitum,inhibition,TUNISIA,root barks,phenol,Staphylococcus aureus,0.996
+Moroccan,Salvia clandestina,0.538,2,Gymnosporia senegalensis,inhibition,SOUTH AFRICA,LEAF,alkaloid phenol terpen steroid,Mycobacterium tuberculosis bacteria,0.995
+Moroccan,Salvia clandestina,0.538,3,Larrea divaricata,induction,ARGENTINA,LEAF_BRANCHE,ND,Mycobacterium tuberculosis,0.995
+Moroccan,Origanum compactum,0.409,1,Rhus tripartitum,inhibition,TUNISIA,root barks,phenol,Staphylococcus aureus,0.995
+Moroccan,Origanum compactum,0.409,2,Gymnosporia senegalensis,inhibition,SOUTH AFRICA,LEAF,alkaloid phenol terpen steroid,Mycobacterium tuberculosis bacteria,0.995
+Moroccan,Origanum compactum,0.409,3,Echium amoenum,induction,IRAN,Flowers,"phenol, alkaloid and terpene ( main component)",L. major strain MRHO/IR/75/ER,0.995
+Moroccan,Lavandula dentata,0.345,1,Scrophularia striata,inhibition,IRAN,Aerial part,Flavonoid phenol,"Staphylococcus aureus ATCC 25923, Staphylococ",0.995
+Moroccan,Lavandula dentata,0.345,2,Gymnosporia senegalensis,inhibition,SOUTH AFRICA,LEAF,alkaloid phenol terpen steroid,Mycobacterium tuberculosis bacteria,0.995
+Moroccan,Lavandula dentata,0.345,3,Kielmeyera membranacea,inhibition,BRAZIL,leaf(Dichloromethane),triterpene,t Mycobacterium tuberculosis H37Rv (ATCC 2729,0.995
+Moroccan,Origanum elongatum,0.458,1,Protium paniculatum var. modestum (PPM,inhibition,BRAZIL,oleoresins EO,Triterpenes,nd,0.992
+Moroccan,Origanum elongatum,0.458,2,Psiadia punctulata,induction,KENYA,STEM BARK_LEAF,flavones and phenyl propenoids phenol,L.Major,0.992
+Moroccan,Origanum elongatum,0.458,3,Pedilanthus tithymaloides,inhibition,india,leaf,luteolin  phenol,Herpes Simplex Virus (HSV)HSV-2G (ATCC734) Vi,0.992
+Moroccan,Myrtus communis,0.588,1,Rhus tripartitum,inhibition,TUNISIA,root barks,phenol,Staphylococcus aureus,0.996
+Moroccan,Myrtus communis,0.588,2,Morinda citrifolia,induction,BRAZIL,FRUIT,phenolic compound,Leishmania amazonensis,0.996
+Moroccan,Myrtus communis,0.588,3,Larrea divaricata,induction,ARGENTINA,LEAF_BRANCHE,ND,Mycobacterium tuberculosis,0.996
+Moroccan,Euphorbia echinus,0.387,1,Cinnamomum camphora,inhibition,Korea,LEAF,camphor terpene alkaloid,ND,0.995
+Moroccan,Euphorbia echinus,0.387,2,Larrea divaricata,induction,ARGENTINA,LEAF_BRANCHE,ND,Mycobacterium tuberculosis,0.994
+Moroccan,Euphorbia echinus,0.387,3,Eucommia ulmoides,inhibition,CHINA,FLOWER,ND,ND,0.994
+Moroccan,Cannabis sativa,0.215,1,Santolina impressa,inhibition,Portugal,stems,"monoterpene hydrocarbons and oxygenated monoterpenes,  β-pin",C.albicans fungus,0.995
+Moroccan,Cannabis sativa,0.215,2,Laurencia Dendroidea,inhibition,BRAZIL,WHOLE PLANT,"l (1), obtusol (2), and cartilagineol terpene",Mycobacterium tuberculosis.bacteria,0.995
+Moroccan,Cannabis sativa,0.215,3,Anthemis wiedemanniana,inhibition,TURKEY,Aerial parts,sesquiterpenes (10.1%). The presence of irregular monoterpen,Bacillus cereus (ATCC 11778) 50 50 1.56 Bacil,0.995

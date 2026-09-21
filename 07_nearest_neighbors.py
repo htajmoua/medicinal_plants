@@ -1,129 +1,136 @@
 """
-Step 7: nearest-neighbour analysis. For each Moroccan plant, the three closest
-training records in BiomedBERT embedding space (cosine similarity), with their
-labels and descriptors. Uses the embeddings cached by 01_encode_embeddings.py.
-Output: results/nearest_neighbors.txt
+Step 7: nearest-neighbour analysis (Table S3 of the Supplementary Materials).
+For each of the 15 unlabelled plants (4 validation plants and 11 Moroccan
+plants), the three closest training records in the raw BiomedBERT embedding
+space (cosine similarity of the mean-pooled 768-d vectors, before
+standardisation and PCA), with their labels and descriptors, together with the
+score P(class = 1) of the final model.
+Uses the embeddings cached by 01_encode_embeddings.py (training records) and
+04_prediction_stability.py (unlabelled plants); the unlabelled plants are
+re-encoded if that cache is absent.
+Outputs: results/nearest_neighbors_table_S3.csv, results/nearest_neighbors.txt
 """
-import pandas as pd, numpy as np, os, re, warnings, gc
+import os, re, warnings, gc
 os.environ['TOKENIZERS_PARALLELISM'] = 'false'
 warnings.filterwarnings('ignore')
+import numpy as np
+import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics.pairwise import cosine_similarity
 
-ALL_FEATURES = ['SPECIES','REGION','USED PART','METABOLITE CONTENT',
-                'TESTED MICROORGANISME','EFFECTIVE CONCENTRATION']
-LABELS = {'SPECIES':'Species','REGION':'Region','USED PART':'Part',
-          'METABOLITE CONTENT':'Metabolites','TESTED MICROORGANISME':'Microorganism',
-          'EFFECTIVE CONCENTRATION':'Concentration'}
+RANDOM_STATE = 42
+PCA_VARIANCE = 0.95
+OPT_THRESHOLD = 0.39
+BEST_C = 0.001
+EMB_MODEL = 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'
+DATA_FILE = os.path.join('data', 'data_med_plants.xlsx')
+os.makedirs('results', exist_ok=True); os.makedirs('cache', exist_ok=True)
+
+feature_columns = ['SPECIES', 'REGION', 'USED PART', 'METABOLITE CONTENT',
+                   'TESTED MICROORGANISME', 'EFFECTIVE CONCENTRATION']
+
 
 def serialize_row(row):
-    return '. '.join(f'{LABELS[c]}: {row[c]}' for c in ALL_FEATURES if c in row.index) + '.'
+    return (f"Species: {row['SPECIES']}. Region: {row['REGION']}. Part: {row['USED PART']}. "
+            f"Metabolites: {row['METABOLITE CONTENT']}. Microorganism: {row['TESTED MICROORGANISME']}. "
+            f"Concentration: {row['EFFECTIVE CONCENTRATION']}.")
 
-def csn(n):
-    s = re.sub(r'\([^)]*\)','',str(n).strip())
-    s = re.sub(r'\d+','',s)
-    return re.sub(r'\s+',' ',s).strip()
 
-def cc(v):
-    return re.sub(r'\s*\(?\s*[Cc][Ll][Aa][Ss][Ss][Ee]\s*\d+\s*\)?','',str(v).strip()).strip()
+def clean_species_name(name):
+    s = re.sub(r'\([^)]*\)', '', str(name).strip())
+    s = re.sub(r'\d+', '', s)
+    return re.sub(r'\s+', ' ', s).strip()
 
-# ── Load train data ──
-os.makedirs('results', exist_ok=True)
-data_file = os.path.join('data', 'data_med_plants.xlsx')
-df_train = pd.read_excel(data_file, sheet_name='Dataset(litterature)', header=1)
+
+def clean_concentration(val):
+    return re.sub(r'\s*\(?\s*[Cc][Ll][Aa][Ss][Ss][Ee]\s*\d+\s*\)?', '', str(val).strip()).strip()
+
+
+def clean_df(df):
+    """Same cleaning as in 04_prediction_stability.py for the unlabelled sets."""
+    df.columns = df.columns.str.strip()
+    for col in feature_columns:
+        if col not in df.columns:
+            df[col] = 'Unknown'
+        else:
+            df[col] = df[col].fillna('Unknown').replace('ND', 'Unknown').replace('', 'Unknown').astype(str)
+    df['SPECIES'] = df['SPECIES'].apply(clean_species_name)
+    df['EFFECTIVE CONCENTRATION'] = df['EFFECTIVE CONCENTRATION'].apply(clean_concentration)
+    return df[(df['SPECIES'].str.len() > 2) & (df['SPECIES'] != 'Unknown')].copy()
+
+
+# ── training records (same reading as 01 and 04: no species cleaning) ────
+df_train = pd.read_excel(DATA_FILE, sheet_name='Dataset(litterature)', header=1)
 df_train.columns = df_train.columns.str.strip()
-for c in ALL_FEATURES:
-    if c in df_train.columns:
-        df_train[c] = df_train[c].fillna('Unknown').replace('ND','Unknown').replace('','Unknown').astype(str)
-if 'SPECIES' in df_train.columns:
-    df_train['SPECIES'] = df_train['SPECIES'].apply(csn)
-if 'EFFECTIVE CONCENTRATION' in df_train.columns:
-    df_train['EFFECTIVE CONCENTRATION'] = df_train['EFFECTIVE CONCENTRATION'].apply(cc)
+df_raw = df_train.copy()   # descriptors as written in the workbook, for display in Table S3
+for col in feature_columns:
+    df_train[col] = df_train[col].fillna('Unknown').replace('ND', 'Unknown').replace('', 'Unknown').astype(str)
 df_train = df_train.dropna(subset=['TARGET'])
-df_train['TARGET'] = df_train['TARGET'].astype(int)
-y_all = df_train['TARGET'].values
+df_raw = df_raw.loc[df_train.index].fillna('ND')
+y = df_train['TARGET'].astype(int).values
 
-# ── Load Moroccan plants ──
-df_pred = pd.read_excel(data_file, sheet_name='Prediction', header=1)
-df_pred = df_pred.dropna(how='all')
-df_pred.columns = df_pred.columns.str.strip()
-for c in ALL_FEATURES:
-    if c not in df_pred.columns:
-        df_pred[c] = 'Unknown'
-    else:
-        df_pred[c] = df_pred[c].fillna('Unknown').replace('ND','Unknown').replace('','Unknown').astype(str)
-if 'SPECIES' in df_pred.columns:
-    df_pred['SPECIES'] = df_pred['SPECIES'].apply(csn)
-if 'EFFECTIVE CONCENTRATION' in df_pred.columns:
-    df_pred['EFFECTIVE CONCENTRATION'] = df_pred['EFFECTIVE CONCENTRATION'].apply(cc)
-df_moroccan = df_pred[df_pred['SPECIES'].str.len() > 2].copy()
+# ── unlabelled plants: validation sheet then Prediction sheet ────────────
+df_val = clean_df(pd.read_excel(DATA_FILE, sheet_name='validation', header=1).dropna(how='all'))
+df_mor = clean_df(pd.read_excel(DATA_FILE, sheet_name='Prediction', header=1).dropna(how='all'))
+names = list(df_val['SPECIES']) + list(df_mor['SPECIES'])
+group = ['validation'] * len(df_val) + ['Moroccan'] * len(df_mor)
+print(f"train N={len(df_train)}, validation n={len(df_val)}, Moroccan n={len(df_mor)}")
 
-print(f"Train: {len(df_train)} | Moroccan: {len(df_moroccan)}")
-
-# ── Load / compute embeddings ──
-X_train_emb = np.load('cache/_X_all_BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext.npy')
-
-emb_pred_file = 'cache/_X_moroccan_BiomedBERT.npy'
-if os.path.exists(emb_pred_file):
-    print("Loading cached Moroccan embeddings...")
-    X_pred_emb = np.load(emb_pred_file)
+# ── embeddings ───────────────────────────────────────────────────────────
+X_train = np.load('cache/_X_all_BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext.npy')
+cache_val, cache_mor = 'cache/_X_final_val_BiomedBERT.npy', 'cache/_X_final_moroccan_BiomedBERT.npy'
+if os.path.exists(cache_val) and os.path.exists(cache_mor):
+    X_val, X_mor = np.load(cache_val), np.load(cache_mor)
+    print("unlabelled-plant embeddings loaded from the cache written by 04_prediction_stability.py")
 else:
-    print("Loading BiomedBERT model (this takes a few minutes on CPU)...", flush=True)
     from sentence_transformers import SentenceTransformer
-    encoder = SentenceTransformer(
-        'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext', device='cpu')
-    print("Model loaded, encoding...", flush=True)
-    pred_texts = df_moroccan.apply(serialize_row, axis=1).tolist()
-    X_pred_emb = encoder.encode(pred_texts, show_progress_bar=True, batch_size=8,
-                                convert_to_numpy=True)
-    np.save(emb_pred_file, X_pred_emb)
-    print(f"Saved embeddings to {emb_pred_file}")
-    del encoder; gc.collect()
+    enc = SentenceTransformer(EMB_MODEL, device='cpu')
+    X_val = enc.encode(df_val.apply(serialize_row, axis=1).tolist(), batch_size=4, convert_to_numpy=True, show_progress_bar=False)
+    X_mor = enc.encode(df_mor.apply(serialize_row, axis=1).tolist(), batch_size=4, convert_to_numpy=True, show_progress_bar=False)
+    np.save(cache_val, X_val); np.save(cache_mor, X_mor)
+    del enc; gc.collect()
+X_new = np.vstack([X_val, X_mor])
+assert len(names) == len(X_new)
 
-# ── Predictions ──
-scaler = StandardScaler()
-X_s = scaler.fit_transform(X_train_emb)
-pca = PCA(n_components=0.95, random_state=42)
-X_p = pca.fit_transform(X_s)
-X_pp = pca.transform(scaler.transform(X_pred_emb))
-clf = LogisticRegression(C=0.001, penalty='l2', solver='lbfgs', max_iter=2000, random_state=42)
-clf.fit(X_p, y_all)
-probs = clf.predict_proba(X_pp)[:, 1]
+# ── scores of the final model (as in 03 and 04) ──────────────────────────
+scaler = StandardScaler().fit(X_train)
+pca = PCA(n_components=PCA_VARIANCE, random_state=RANDOM_STATE).fit(scaler.transform(X_train))
+clf = LogisticRegression(C=BEST_C, penalty='l2', solver='lbfgs', max_iter=2000, random_state=RANDOM_STATE)
+clf.fit(pca.transform(scaler.transform(X_train)), y)
+probs = clf.predict_proba(pca.transform(scaler.transform(X_new)))[:, 1]
 
-# ── Cosine similarities ──
-sims = cosine_similarity(X_pred_emb, X_train_emb)
-order = np.argsort(-probs)
-
-# ── Write results to file ──
-out = []
-for i in order:
-    sp = str(df_moroccan.iloc[i]['SPECIES'])
-    prob = probs[i]
-    pred = 'POSITIVE' if prob >= 0.39 else 'NEGATIVE'
+# ── three nearest labelled records in the raw embedding space ────────────
+sims = cosine_similarity(X_new, X_train)
+rows, lines = [], []
+for i, (name, g) in enumerate(zip(names, group)):
     top3 = np.argsort(-sims[i])[:3]
-    out.append(f"{'='*90}")
-    out.append(f"  {sp}  |  P={prob:.3f}  |  {pred}")
-    out.append(f"{'─'*90}")
-    for rank, j in enumerate(top3):
-        s = sims[i][j]
-        t_sp = str(df_train.iloc[j]['SPECIES'])
-        t_tgt = int(df_train.iloc[j]['TARGET'])
-        tl = 'IMMUNO+' if t_tgt == 1 else 'IMMUNO-'
-        t_reg = str(df_train.iloc[j]['REGION'])
-        t_part = str(df_train.iloc[j]['USED PART'])
-        t_met = str(df_train.iloc[j]['METABOLITE CONTENT'])[:80]
-        t_mic = str(df_train.iloc[j]['TESTED MICROORGANISME'])[:50]
-        out.append(f"  {rank+1}. {t_sp:35s} [{tl}] sim={s:.3f}")
-        out.append(f"     region: {t_reg}  |  part: {t_part}")
-        out.append(f"     metabolites: {t_met}")
-        out.append(f"     microorganism: {t_mic}")
-    out.append("")
+    lines.append('=' * 90)
+    lines.append(f"  {name} ({g})  |  P={probs[i]:.3f}  |  {'induction' if probs[i] >= OPT_THRESHOLD else 'inhibition'} at t={OPT_THRESHOLD}")
+    lines.append('-' * 90)
+    for rank, j in enumerate(top3, start=1):
+        rec = df_raw.iloc[j]   # raw workbook descriptors (the model input replaces 'ND' by 'Unknown')
+        rows.append({
+            'Set': g, 'Plant': name, 'P': round(float(probs[i]), 3), 'Rank': rank,
+            'Neighbour': str(rec['SPECIES']).strip(),
+            'Neighbour_label': 'induction' if y[j] == 1 else 'inhibition',
+            'Region': str(rec['REGION']).strip(), 'Used_part': str(rec['USED PART']).strip(),
+            'Metabolites': str(rec['METABOLITE CONTENT']).strip()[:60],
+            'Microorganism': str(rec['TESTED MICROORGANISME']).strip()[:45],
+            'Cosine': round(float(sims[i, j]), 3),
+        })
+        r = rows[-1]
+        lines.append(f"  {rank}. {r['Neighbour']:35s} [{r['Neighbour_label']}] cosine={r['Cosine']:.3f}")
+        lines.append(f"     region: {r['Region']}  |  part: {r['Used_part']}")
+        lines.append(f"     metabolites: {r['Metabolites']}")
+        lines.append(f"     microorganism: {r['Microorganism']}")
+    lines.append('')
 
-text = '\n'.join(out)
+table = pd.DataFrame(rows)
+table.to_csv('results/nearest_neighbors_table_S3.csv', index=False)
 with open('results/nearest_neighbors.txt', 'w') as f:
-    f.write(text)
-
-print(text)
-print("\nSaved: results/nearest_neighbors.txt")
+    f.write('\n'.join(lines))
+print(f"cosine similarity over all {len(names)} x {len(X_train)} pairs: {sims.min():.3f} to {sims.max():.3f}")
+print(table.to_string(index=False))
+print("\nSaved: results/nearest_neighbors_table_S3.csv, results/nearest_neighbors.txt")

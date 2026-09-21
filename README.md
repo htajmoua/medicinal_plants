@@ -45,7 +45,7 @@ Run the scripts from the repository root, in numerical order. Intermediate embed
 | `04_prediction_stability.py` | Bootstrap stability of the scores, threshold sensitivity, calibration of out-of-fold probabilities, Tables 5 and 6 with reference labels and experimental conditions | `prediction_stability_bootstrap.csv`, `threshold_sensitivity.csv`, `calibration_*.csv`, `table5_*.csv`, `table6_*.csv`, `figure_stability_calibration.png` | Tables 5-6, Tables S1-S2, Figure S1 |
 | `05_figure_model_selection.py` | Bar chart of the cross-validated F1 scores | `figure_model_selection.png` | Figure 1 |
 | `06_figure_pca.py` | PCA of the embedding space with the new plants projected, explained variance, score ranking | `figure_pca_embedding_space.png` | Figure 2 |
-| `07_nearest_neighbors.py` | Closest training records of each Moroccan plant in embedding space | `nearest_neighbors.txt` | Table S3 |
+| `07_nearest_neighbors.py` | Three closest training records of each of the 15 unlabelled plants (4 validation, 11 Moroccan) in embedding space, with cosine similarities | `nearest_neighbors_table_S3.csv`, `nearest_neighbors.txt` | Table S3 |
 
 Script 02 is the longest step because it evaluates the full hyperparameter grids of the five classifiers for both encoders. The other scripts run in a few minutes on a laptop.
 

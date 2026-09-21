@@ -1,207 +1,239 @@
 ==========================================================================================
-  Myrtus communis  |  P=0.588  |  POSITIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Rhus tripartitum                    [IMMUNO-] sim=0.996
-     region: TUNISIA  |  part: root barks
-     metabolites: phenol
-     microorganism: Staphylococcus aureus
-  2. Morinda citrifolia                  [IMMUNO+] sim=0.996
-     region: BRAZIL  |  part: FRUIT
-     metabolites: phenolic compound 
-     microorganism: Leishmania amazonensis
-  3. Larrea divaricata                   [IMMUNO+] sim=0.996
-     region: ARGENTINA  |  part: LEAF_BRANCHE
-     metabolites: Unknown
-     microorganism:  Mycobacterium tuberculosis
+  Kalanchoe pinnata (validation)  |  P=0.765  |  induction at t=0.39
+------------------------------------------------------------------------------------------
+  1. Chenopodium  ambrosioides           [inhibition] cosine=0.996
+     region: BRAZIL  |  part: AERIAL PART
+     metabolites: Kaempferol phenol
+     microorganism: parasite
+  2. Solanum lycocarpum                  [induction] cosine=0.996
+     region: BRAZIL  |  part: fruit
+     metabolites: alkaloid
+     microorganism: Schistosoma mansoni parasite
+  3. potato tuber                        [induction] cosine=0.996
+     region: INDIA  |  part: TUBERCULE
+     metabolites: ND
+     microorganism: Leishmania donovani
 
 ==========================================================================================
-  Salvia clandestina  |  P=0.538  |  POSITIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Rhus tripartitum                    [IMMUNO-] sim=0.996
-     region: TUNISIA  |  part: root barks
-     metabolites: phenol
-     microorganism: Staphylococcus aureus
-  2. Gymnosporia senegalensis            [IMMUNO-] sim=0.995
-     region: SOUTH AFRICA  |  part: LEAF
-     metabolites: alkaloid phenol terpen steroid 
-     microorganism: Mycobacterium tuberculosis bacteria
-  3. Larrea divaricata                   [IMMUNO+] sim=0.995
-     region: ARGENTINA  |  part: LEAF_BRANCHE
-     metabolites: Unknown
-     microorganism:  Mycobacterium tuberculosis
+  Phyllanthus amarus (validation)  |  P=0.687  |  induction at t=0.39
+------------------------------------------------------------------------------------------
+  1. Psidium guajava                     [inhibition] cosine=0.996
+     region: INDIA  |  part: LEAF
+     metabolites: quercetin,phenols, alkaloids, carbohydrates and steroids as 
+     microorganism: Escherichia coli (EPEC) [MTCC-724]
+  2. Piper nigrum                        [induction] cosine=0.995
+     region: india  |  part: seed
+     metabolites: piperine terpene
+     microorganism: Leishmania donovani culture (MHOM/IN/83/AG83)
+  3. Chenopodium  ambrosioides           [inhibition] cosine=0.995
+     region: BRAZIL  |  part: AERIAL PART
+     metabolites: Kaempferol phenol
+     microorganism: parasite
 
 ==========================================================================================
-  Origanum elongatum  |  P=0.458  |  POSITIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Protium paniculatum var. modestum (PPM [IMMUNO-] sim=0.992
-     region: BRAZIL  |  part: oleoresins EO
-     metabolites: Triterpenes
-     microorganism: nd
-  2. Psiadia punctulata                  [IMMUNO+] sim=0.992
+  Empetrum nigrum L. (validation)  |  P=0.376  |  inhibition at t=0.39
+------------------------------------------------------------------------------------------
+  1. Eucommia ulmoides                   [inhibition] cosine=0.997
+     region: CHINA  |  part: FLOWER
+     metabolites: ND
+     microorganism: ND
+  2. Smilax glabra                       [induction] cosine=0.996
+     region: Korea  |  part: root
+     metabolites: polysaccharides
+     microorganism: ND
+  3. Chasmanthera dependens              [induction] cosine=0.996
      region: KENYA  |  part: STEM BARK_LEAF
-     metabolites:  flavones and phenyl propenoids phenol
+     metabolites: berberine type alkaloids
      microorganism: L.Major
-  3. Pedilanthus tithymaloides           [IMMUNO-] sim=0.992
-     region: india  |  part: leaf
-     metabolites: luteolin  phenol
-     microorganism: Herpes Simplex Virus (HSV)HSV-2G (ATCC734) Virus
 
 ==========================================================================================
-  Capparis spinosa  |  P=0.414  |  POSITIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Gynura procumbens                   [IMMUNO-] sim=0.996
-     region: MALAYSIA  |  part: WHOLE PLANT
-     metabolites: ALKALOID_PHENOL_sterol
-     microorganism: Unknown
-  2. Moringa oleifera                    [IMMUNO-] sim=0.995
-     region: Thailand  |  part: POD_SEED
-     metabolites: Unknown
-     microorganism: Unknown
-  3. Artemisia dracunculus               [IMMUNO+] sim=0.995
-     region: IRAN  |  part: Unknown
-     metabolites: artemisinin: Terpen_ALKALOID_PHENOL
-     microorganism: Leishmania major
-
-==========================================================================================
-  Origanum compactum  |  P=0.409  |  POSITIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Rhus tripartitum                    [IMMUNO-] sim=0.995
-     region: TUNISIA  |  part: root barks
-     metabolites: phenol
-     microorganism: Staphylococcus aureus
-  2. Gymnosporia senegalensis            [IMMUNO-] sim=0.995
-     region: SOUTH AFRICA  |  part: LEAF
-     metabolites: alkaloid phenol terpen steroid 
-     microorganism: Mycobacterium tuberculosis bacteria
-  3. Echium amoenum                      [IMMUNO+] sim=0.995
-     region: IRAN  |  part: Flowers 
+  Eremanthus crotonoides (validation)  |  P=0.437  |  induction at t=0.39
+------------------------------------------------------------------------------------------
+  1. Kielmeyera membranacea              [inhibition] cosine=0.999
+     region: BRAZIL  |  part: leaf(Dichloromethane)
+     metabolites: triterpene
+     microorganism: t Mycobacterium tuberculosis H37Rv (ATCC 2729
+  2. Apium graveolens                    [inhibition] cosine=0.995
+     region: ITALY  |  part: LEAF
+     metabolites: apiin phenol
+     microorganism: ND (microorganism) but tested on J774cells
+  3. Echium amoenum                      [induction] cosine=0.995
+     region: IRAN  |  part: Flowers
      metabolites: phenol, alkaloid and terpene ( main component)
      microorganism: L. major strain MRHO/IR/75/ER
 
 ==========================================================================================
-  Warionia saharae  |  P=0.406  |  POSITIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Rhus tripartitum                    [IMMUNO-] sim=0.995
+  Warionia saharae (Moroccan)  |  P=0.406  |  induction at t=0.39
+------------------------------------------------------------------------------------------
+  1. Rhus tripartitum                    [inhibition] cosine=0.995
      region: TUNISIA  |  part: root barks
      metabolites: phenol
      microorganism: Staphylococcus aureus
-  2. Scrophularia striata                [IMMUNO-] sim=0.995
+  2. Scrophularia striata                [inhibition] cosine=0.995
      region: IRAN  |  part: Aerial part
      metabolites: Flavonoid phenol
-     microorganism: Staphylococcus aureus ATCC 25923, Staphylococcus e
-  3. Gymnosporia senegalensis            [IMMUNO-] sim=0.995
+     microorganism: Staphylococcus aureus ATCC 25923, Staphylococ
+  3. Gymnosporia senegalensis            [inhibition] cosine=0.995
      region: SOUTH AFRICA  |  part: LEAF
-     metabolites: alkaloid phenol terpen steroid 
+     metabolites: alkaloid phenol terpen steroid
      microorganism: Mycobacterium tuberculosis bacteria
 
 ==========================================================================================
-  Ephedra altissima  |  P=0.394  |  POSITIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Rhus tripartitum                    [IMMUNO-] sim=0.995
+  Ephedra altissima (Moroccan)  |  P=0.394  |  induction at t=0.39
+------------------------------------------------------------------------------------------
+  1. Rhus tripartitum                    [inhibition] cosine=0.995
      region: TUNISIA  |  part: root barks
      metabolites: phenol
      microorganism: Staphylococcus aureus
-  2. Scrophularia striata                [IMMUNO-] sim=0.995
+  2. Scrophularia striata                [inhibition] cosine=0.995
      region: IRAN  |  part: Aerial part
      metabolites: Flavonoid phenol
-     microorganism: Staphylococcus aureus ATCC 25923, Staphylococcus e
-  3. Gymnosporia senegalensis            [IMMUNO-] sim=0.994
+     microorganism: Staphylococcus aureus ATCC 25923, Staphylococ
+  3. Gymnosporia senegalensis            [inhibition] cosine=0.994
      region: SOUTH AFRICA  |  part: LEAF
-     metabolites: alkaloid phenol terpen steroid 
+     metabolites: alkaloid phenol terpen steroid
      microorganism: Mycobacterium tuberculosis bacteria
 
 ==========================================================================================
-  Euphorbia echinus  |  P=0.387  |  NEGATIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Cinnamomum camphora                 [IMMUNO-] sim=0.995
-     region: Korea  |  part: LEAF
-     metabolites: camphor terpene alkaloid
-     microorganism: Unknown
-  2. Larrea divaricata                   [IMMUNO+] sim=0.994
-     region: ARGENTINA  |  part: LEAF_BRANCHE
-     metabolites: Unknown
-     microorganism:  Mycobacterium tuberculosis
-  3. Eucommia ulmoides                   [IMMUNO-] sim=0.994
-     region: CHINA  |  part: FLOWER
-     metabolites: Unknown
-     microorganism: Unknown
-
-==========================================================================================
-  Ephedra fragilis  |  P=0.352  |  NEGATIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Gynura procumbens                   [IMMUNO-] sim=0.995
+  Ephedra fragilis (Moroccan)  |  P=0.352  |  inhibition at t=0.39
+------------------------------------------------------------------------------------------
+  1. Gynura procumbens                   [inhibition] cosine=0.995
      region: MALAYSIA  |  part: WHOLE PLANT
      metabolites: ALKALOID_PHENOL_sterol
-     microorganism: Unknown
-  2. Limoniastrum guyonianum             [IMMUNO+] sim=0.995
+     microorganism: ND
+  2. Limoniastrum guyonianum             [induction] cosine=0.995
      region: TUNISIA  |  part: GALL
-     metabolites:  flavonoids, tannins and polyphenols phenol
-     microorganism: Unknown
-  3. Eucommia ulmoides                   [IMMUNO-] sim=0.995
+     metabolites: flavonoids, tannins and polyphenols phenol
+     microorganism: ND
+  3. Eucommia ulmoides                   [inhibition] cosine=0.995
      region: CHINA  |  part: FLOWER
-     metabolites: Unknown
-     microorganism: Unknown
+     metabolites: ND
+     microorganism: ND
 
 ==========================================================================================
-  Lavandula dentata  |  P=0.345  |  NEGATIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Scrophularia striata                [IMMUNO-] sim=0.995
+  Capparis spinosa (Moroccan)  |  P=0.414  |  induction at t=0.39
+------------------------------------------------------------------------------------------
+  1. Gynura procumbens                   [inhibition] cosine=0.996
+     region: MALAYSIA  |  part: WHOLE PLANT
+     metabolites: ALKALOID_PHENOL_sterol
+     microorganism: ND
+  2. Moringa oleifera                    [inhibition] cosine=0.995
+     region: Thailand  |  part: POD_SEED
+     metabolites: ND
+     microorganism: ND
+  3. Artemisia dracunculus               [induction] cosine=0.995
+     region: IRAN  |  part: ND
+     metabolites: artemisinin: Terpen_ALKALOID_PHENOL
+     microorganism: Leishmania major
+
+==========================================================================================
+  Salvia clandestina (Moroccan)  |  P=0.538  |  induction at t=0.39
+------------------------------------------------------------------------------------------
+  1. Rhus tripartitum                    [inhibition] cosine=0.996
+     region: TUNISIA  |  part: root barks
+     metabolites: phenol
+     microorganism: Staphylococcus aureus
+  2. Gymnosporia senegalensis            [inhibition] cosine=0.995
+     region: SOUTH AFRICA  |  part: LEAF
+     metabolites: alkaloid phenol terpen steroid
+     microorganism: Mycobacterium tuberculosis bacteria
+  3. Larrea divaricata                   [induction] cosine=0.995
+     region: ARGENTINA  |  part: LEAF_BRANCHE
+     metabolites: ND
+     microorganism: Mycobacterium tuberculosis
+
+==========================================================================================
+  Origanum compactum (Moroccan)  |  P=0.409  |  induction at t=0.39
+------------------------------------------------------------------------------------------
+  1. Rhus tripartitum                    [inhibition] cosine=0.995
+     region: TUNISIA  |  part: root barks
+     metabolites: phenol
+     microorganism: Staphylococcus aureus
+  2. Gymnosporia senegalensis            [inhibition] cosine=0.995
+     region: SOUTH AFRICA  |  part: LEAF
+     metabolites: alkaloid phenol terpen steroid
+     microorganism: Mycobacterium tuberculosis bacteria
+  3. Echium amoenum                      [induction] cosine=0.995
+     region: IRAN  |  part: Flowers
+     metabolites: phenol, alkaloid and terpene ( main component)
+     microorganism: L. major strain MRHO/IR/75/ER
+
+==========================================================================================
+  Lavandula dentata (Moroccan)  |  P=0.345  |  inhibition at t=0.39
+------------------------------------------------------------------------------------------
+  1. Scrophularia striata                [inhibition] cosine=0.995
      region: IRAN  |  part: Aerial part
      metabolites: Flavonoid phenol
-     microorganism: Staphylococcus aureus ATCC 25923, Staphylococcus e
-  2. Gymnosporia senegalensis            [IMMUNO-] sim=0.995
+     microorganism: Staphylococcus aureus ATCC 25923, Staphylococ
+  2. Gymnosporia senegalensis            [inhibition] cosine=0.995
      region: SOUTH AFRICA  |  part: LEAF
-     metabolites: alkaloid phenol terpen steroid 
+     metabolites: alkaloid phenol terpen steroid
      microorganism: Mycobacterium tuberculosis bacteria
-  3. Kielmeyera membranacea              [IMMUNO-] sim=0.995
+  3. Kielmeyera membranacea              [inhibition] cosine=0.995
      region: BRAZIL  |  part: leaf(Dichloromethane)
      metabolites: triterpene
-     microorganism: t Mycobacterium tuberculosis H37Rv (ATCC 27294).ba
+     microorganism: t Mycobacterium tuberculosis H37Rv (ATCC 2729
 
 ==========================================================================================
-  Unknown  |  P=0.312  |  NEGATIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Eucommia ulmoides                   [IMMUNO-] sim=0.986
-     region: CHINA  |  part: FLOWER
-     metabolites: Unknown
-     microorganism: Unknown
-  2. Moringa oleifera                    [IMMUNO-] sim=0.984
-     region: Thailand  |  part: POD_SEED
-     metabolites: Unknown
-     microorganism: Unknown
-  3. Tamarindus indica                   [IMMUNO-] sim=0.984
-     region: THAILAND  |  part: SEED
+  Origanum elongatum (Moroccan)  |  P=0.458  |  induction at t=0.39
+------------------------------------------------------------------------------------------
+  1. Protium paniculatum var. modestum (PPM [inhibition] cosine=0.992
+     region: BRAZIL  |  part: oleoresins EO
+     metabolites: Triterpenes
+     microorganism: nd
+  2. Psiadia punctulata                  [induction] cosine=0.992
+     region: KENYA  |  part: STEM BARK_LEAF
+     metabolites: flavones and phenyl propenoids phenol
+     microorganism: L.Major
+  3. Pedilanthus tithymaloides           [inhibition] cosine=0.992
+     region: india  |  part: leaf
+     metabolites: luteolin  phenol
+     microorganism: Herpes Simplex Virus (HSV)HSV-2G (ATCC734) Vi
+
+==========================================================================================
+  Myrtus communis (Moroccan)  |  P=0.588  |  induction at t=0.39
+------------------------------------------------------------------------------------------
+  1. Rhus tripartitum                    [inhibition] cosine=0.996
+     region: TUNISIA  |  part: root barks
      metabolites: phenol
-     microorganism: Unknown
+     microorganism: Staphylococcus aureus
+  2. Morinda citrifolia                  [induction] cosine=0.996
+     region: BRAZIL  |  part: FRUIT
+     metabolites: phenolic compound
+     microorganism: Leishmania amazonensis
+  3. Larrea divaricata                   [induction] cosine=0.996
+     region: ARGENTINA  |  part: LEAF_BRANCHE
+     metabolites: ND
+     microorganism: Mycobacterium tuberculosis
 
 ==========================================================================================
-  Unknown  |  P=0.309  |  NEGATIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Eucommia ulmoides                   [IMMUNO-] sim=0.984
+  Euphorbia echinus (Moroccan)  |  P=0.387  |  inhibition at t=0.39
+------------------------------------------------------------------------------------------
+  1. Cinnamomum camphora                 [inhibition] cosine=0.995
+     region: Korea  |  part: LEAF
+     metabolites: camphor terpene alkaloid
+     microorganism: ND
+  2. Larrea divaricata                   [induction] cosine=0.994
+     region: ARGENTINA  |  part: LEAF_BRANCHE
+     metabolites: ND
+     microorganism: Mycobacterium tuberculosis
+  3. Eucommia ulmoides                   [inhibition] cosine=0.994
      region: CHINA  |  part: FLOWER
-     metabolites: Unknown
-     microorganism: Unknown
-  2. Tamarindus indica                   [IMMUNO-] sim=0.983
-     region: THAILAND  |  part: SEED
-     metabolites: phenol
-     microorganism: Unknown
-  3. Moringa oleifera                    [IMMUNO-] sim=0.982
-     region: Thailand  |  part: POD_SEED
-     metabolites: Unknown
-     microorganism: Unknown
+     metabolites: ND
+     microorganism: ND
 
 ==========================================================================================
-  Cannabis sativa  |  P=0.215  |  NEGATIVE
-──────────────────────────────────────────────────────────────────────────────────────────
-  1. Santolina impressa                  [IMMUNO-] sim=0.995
+  Cannabis sativa (Moroccan)  |  P=0.215  |  inhibition at t=0.39
+------------------------------------------------------------------------------------------
+  1. Santolina impressa                  [inhibition] cosine=0.995
      region: Portugal  |  part: stems
-     metabolites:  monoterpene hydrocarbons and oxygenated monoterpenes,  β-pinene , 1,8-cineole ,
+     metabolites: monoterpene hydrocarbons and oxygenated monoterpenes,  β-pin
      microorganism: C.albicans fungus
-  2. Laurencia Dendroidea                [IMMUNO-] sim=0.995
+  2. Laurencia Dendroidea                [inhibition] cosine=0.995
      region: BRAZIL  |  part: WHOLE PLANT
      metabolites: l (1), obtusol (2), and cartilagineol terpene
      microorganism: Mycobacterium tuberculosis.bacteria
-  3. Anthemis wiedemanniana              [IMMUNO-] sim=0.995
+  3. Anthemis wiedemanniana              [inhibition] cosine=0.995
      region: TURKEY  |  part: Aerial parts
-     metabolites: sesquiterpenes (10.1%). The presence of irregular monoterpenes terpene
-     microorganism: Bacillus cereus (ATCC 11778) 50 50 1.56 Bacillus s
+     metabolites: sesquiterpenes (10.1%). The presence of irregular monoterpen
+     microorganism: Bacillus cereus (ATCC 11778) 50 50 1.56 Bacil
